@@ -229,16 +229,16 @@
   
     
     <div class="card col-lg-4 col-md-6 col-sm-12">
-      <a href="https://903.netlify.com/" class="card-body hover-with-bg" target="_blank" rel="noopener">
+      <a href="https://803.netlify.com/" class="card-body hover-with-bg" target="_blank" rel="noopener">
         <div class="card-content">
           
             <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="潘火实验中学21级3版"
+              <img src="https://803.netlify.app/assets/images/favicon.png" srcset="/img/loading.gif" lazyload alt="潘火实验中学21级3班"
                    onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
             </div>
           
           <div class="link-text">
-            <div class="link-title">潘火实验中学21级3版</div>
+            <div class="link-title">潘火实验中学21级3班</div>
             <div class="link-intro">班级博客</div>
           </div>
         </div>
@@ -251,7 +251,7 @@
         <div class="card-content">
           
             <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Babu Blog（旧站）"
+              <img src="https://duan-babu.netlify.app/favicon.ico" srcset="/img/loading.gif" lazyload alt="Babu Blog（旧站）"
                    onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
             </div>
           
@@ -269,7 +269,7 @@
         <div class="card-content">
           
             <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="布播云解析"
+              <img src="https://bubo.netlify.app/favicon.png" srcset="/img/loading.gif" lazyload alt="布播云解析"
                    onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
             </div>
           
@@ -287,7 +287,7 @@
         <div class="card-content">
           
             <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="布云网盘（201网盘）"
+              <img src="https://drive201.netlify.app/favicon.ico" srcset="/img/loading.gif" lazyload alt="布云网盘（201网盘）"
                    onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
             </div>
           
@@ -302,6 +302,42 @@
 </div>
 
 
+  <!-- Custom -->
+  <div class="custom mx-auto">
+    <hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Example Blog</li><li>简介：Example Blog has a lot of knowledge.</li><li>链接：https://example.com</li><li>图片：https://example.com/favicon.png</li></ul>
+  </div>
+
+
+
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"fVmqlzTpoSYZWW2Rv92KOqxB-gzGzoHsz","appKey":"UBrS0DRlPKidJWDG1omtz5ni","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
 
 
 
