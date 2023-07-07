@@ -1,997 +1,1082 @@
+
+
 <!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
-<html theme="dark" showBanner="true" hasBanner="true" > 
-<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
-<link href="/fontawesome/css/brands.css" rel="stylesheet">
-<link href="/fontawesome/css/solid.css" rel="stylesheet">
-<script src="/js/color.global.min.js" ></script>
-<script src="/js/load-settings.js" ></script>
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Babu">
+  <meta name="keywords" content="">
   
-  <title>Babu Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Babu Blog">
 <meta property="og:url" content="https://babu-blog.netlify.app/index.html">
 <meta property="og:site_name" content="Babu Blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Babu">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Babu Blog" type="application/atom+xml">
+<meta name="twitter:card" content="summary_large_image">
   
   
-    <link rel="shortcut icon" href="/img/icon.png">
   
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <title>Babu Blog</title>
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
-<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"babu-blog.netlify.app","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"fVmqlzTpoSYZWW2Rv92KOqxB-gzGzoHsz","app_key":"UBrS0DRlPKidJWDG1omtz5ni","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
 
   
 <meta name="generator" content="Hexo 6.3.0"></head>
 
+
 <body>
   
-  
+
+  <header>
     
-<div id="banner" class=" is_home ">
-  <img src="/img/background.jpg" itemprop="image">
-  <div id="banner-dim"></div>
-</div>
- 
-   
-  <div id="main-grid" class="shadow   ">
-    <div id="nav" class=" is_home "  >
-      <navbar id="navbar">
-  <nav id="title-nav">
-    <a href="/">
-      <div id="vivia-logo">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-      <div>Babu Blog </div>
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Babu Blog</strong>
     </a>
-  </nav>
-  <nav id="main-nav">
-    
-      <a class="main-nav-link" href="/">主页</a>
-    
-      <a class="main-nav-link" href="/archives">归档</a>
-    
-      <a class="main-nav-link" href="/about">关于</a>
-    
-  </nav>
-  <nav id="sub-nav">
-    <a id="theme-btn" class="nav-icon">
-      <span class="material-symbols-rounded light-mode-icon">wb_sunny</span>
-      <span class="material-symbols-rounded dark-mode-icon">dark_mode</span>
-    </a>
-    
-      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
-        <span class="material-symbols-rounded rss">rss_feed</span>
-      </a>
-    
-    <a id="nav-search-btn" class="nav-icon" title="搜索" style="display: none;">
-      <span class="material-symbols-rounded">search</span>
-    </a>
-    <div id="nav-menu-btn" class="nav-icon">
-      <span class="material-symbols-rounded">menu</span>
-    </div>
-  </nav>
-</navbar>
-<div id="nav-dropdown" class="hidden">
-  <div id="dropdown-link-list">
-    
-      <a class="nav-dropdown-link" href="/">主页</a>
-    
-      <a class="nav-dropdown-link" href="/archives">归档</a>
-    
-      <a class="nav-dropdown-link" href="/about">关于</a>
-    
-    
-      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
-     
-    </div>
-</div>
-<script>
-  let dropdownBtn = document.getElementById("nav-menu-btn");
-  let dropdownEle = document.getElementById("nav-dropdown");
-  dropdownBtn.onclick = function() {
-    dropdownEle.classList.toggle("hidden");
-  }
-</script>
-    </div>
-    <div id="sidebar-wrapper">
-      <sidebar id="sidebar">
-  
-    <div class="widget-wrap">
-  <div class="info-card">
-    <div class="avatar">
-      
-        <image src=https://q1.qlogo.cn/g?b=qq&nk=3552876629&s=640></image>
-      
-      <div class="img-dim"></div>
-    </div>
-    <div class="info">
-      <div class="username">Babu </div>
-      <div class="dot"></div>
-      <div class="subtitle">14岁男程序猿一枚~ </div>
-      <div class="link-list">
-        
-          <a class="link-btn" target="_blank" rel="noopener" href="https://twitter.com" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
-        
-          <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com" title="Steam"><i class="fa-brands fa-steam"></i></a>
-        
-          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/Duan-Babu" title="GitHub"><i class="fa-brands fa-github"></i></a>
-         
-      </div>  
-    </div>
-  </div>
-</div>
 
-  
-  <div class="sticky">
-    
-      
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-
-  <div class="widget-wrap">
-    <div class="widget">
-      <h3 class="widget-title">分类</h3>
-      <div class="category-box">
-            <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">
-                学习
-                <div class="category-count">8</div>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
             </a>
+          </li>
+          
         
-            <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
-                编程
-                <div class="category-count">2</div>
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
             </a>
-        
-            <a class="category-link" href="/categories/%E5%85%AC%E5%91%8A/">
-                公告
-                <div class="category-count">1</div>
-            </a>
-        </div>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap">
-    <div class="widget">
-      <h3 class="widget-title">标签</h3>
-      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Visual-Basic-6-0/" rel="tag">Visual Basic 6.0</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BD%9C%E6%96%87/" rel="tag">作文</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%AC%A2%E8%BF%8E/" rel="tag">欢迎</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%A7%82%E5%90%8E%E6%84%9F/" rel="tag">观后感</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%AF%AD%E6%96%87/" rel="tag">语文</a></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap">
-    <div class="widget">
-      <h3 class="widget-title">归档</h3>
-      
-      
-        <a class="archive-link" href="/archives/2023/07 ">
-          七月 2023 
-          <div class="archive-count">12 </div>
-        </a>
-      
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap">
-    <div class="widget">
-      <h3 class="widget-title">最新文章</h3>
-      <ul>
-        
-          <li>
-            <a href="/2023/07/07/%E6%BD%98%E7%81%AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E5%AD%A6/">潘火实验中学</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/07/%E5%94%AF%E5%85%B6%E7%97%9B%E8%8B%A6%EF%BC%8C%E6%89%8D%E6%9C%89%E6%AC%A2%E4%B9%90/">唯其痛苦，才有欢乐</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/07/%E5%8D%88%E5%A4%9C%E6%83%8A%E9%AD%82/">午夜惊魂</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/07/%E6%88%91%E7%9A%84%E5%A4%96%E5%A9%86/">我的外婆</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/06/VB%E6%84%9F%E6%9F%93%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">【VB】感染其他应用程序</a>
           </li>
         
       </ul>
     </div>
   </div>
+</nav>
 
-    
-  </div>
-</sidebar>
-    </div>
-    <div id="content-body">
-      
-   
+  
 
-<article id="post-欢迎来到-Babu-Blog-我的个人博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/06/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Babu-Blog-%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">欢迎来到 Babu Blog 我的个人博客</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-06T07:30:51.000Z" itemprop="datePublished">2023-07-06</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E5%85%AC%E5%91%8A/">公告</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-             词 
-          </div>
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="欢迎来到 Babu Blog"></span>
+          
         </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AC%A2%E8%BF%8E/" rel="tag">欢迎</a></li></ul>
 
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            原站我的博客_Babu Blog已迁移到本站，并将架构改为Hexo架构，欢迎大家来我的博客讨论！
-  
-          </div>
         
       </div>
 
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
       
-      href="/2023/07/06/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Babu-Blog-%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
- 
-
-   
-
-<article id="post-潘火实验中学" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/07/%E6%BD%98%E7%81%AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E5%AD%A6/">潘火实验中学</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-07T01:28:20.000Z" itemprop="datePublished">2023-07-07</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-             词 
-          </div>
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
         </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%9C%E6%96%87/" rel="tag">作文</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
+          <i class="index-pin iconfont icon-top" title="Pin on top"></i>
         
-          <div class="truncate-text">
-            全文
-“第一所学校始于一棵大树下。” ——路易斯康
+        <a href="/2023/07/06/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Babu-Blog-%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
+          欢迎来到 Babu Blog 我的个人博客
+        </a>
+      </h2>
 
-潘火实验中学坐落于凤起北路以东，潘火大道以南。学校毗邻宁波市人民政府和宁波文化广场，距离轨道交通4号线潘火站仅有500米。总览学校，我们的地上建筑共有5层，由8幢楼与连廊相连接，两排教学楼似叶脉状串连起来，寓意“未来”。校园内特地保留了一棵已有400多年树龄的明朝老槐树，象征着“十年树木，百年树人”的教育理念。我们的学校共设有两个大门——西门和南门。平常我们师生上下学一般走南门，那我们就从南门开始我们的潘实之旅吧！
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/07/06/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Babu-Blog-%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
+        <div>
+          原站我的博客_Babu Blog已迁移到本站，并将架构改为Hexo架构，欢迎大家来我的博客讨论！
+        </div>
+      </a>
 
-步入南门，最抢眼的是那块LED大屏幕。每天上下学时，你总能看到LED大屏幕上滚动播放着学校的喜报和校内新闻。再向前看去，映入眼帘的是一块大石头，上面刻有四个红色大字——“爱就开心”。“爱就开心”是我们的校训，因为“爱就开心”是英文单词“Education（教育）”的谐音。在校园里随处可见的就是这种刻着字的石头。绕着沥青路向东边行走，穿过两排汽车停车位之后，一块“想都是问题，做才有答案”的石头又扑入眼帘，这块石头上面的“想”和“做”两个大字标红，意味着告诉我们，做事情不能空想，而应该付诸行动，这让我想起陆游的一句话...  
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-06 15:30" pubdate>
+              2023-07-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%85%AC%E5%91%8A/" class="category-chain-item">公告</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%AC%A2%E8%BF%8E/">#欢迎</a>
+            
           </div>
         
       </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/07/07/%E6%BD%98%E7%81%AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E5%AD%A6/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+    </article>
   </div>
-  
-</article>
 
- 
-
-   
-
-<article id="post-唯其痛苦，才有欢乐" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/07/07/%E6%BD%98%E7%81%AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E5%AD%A6/" target="_self">
+          <img src="/img/Cover_Passage.jpg" srcset="/img/loading.gif" lazyload alt="潘火实验中学">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
         
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/07/%E5%94%AF%E5%85%B6%E7%97%9B%E8%8B%A6%EF%BC%8C%E6%89%8D%E6%9C%89%E6%AC%A2%E4%B9%90/">唯其痛苦，才有欢乐</a>
-      </h1>
-    
-  
-</div>
+        <a href="/2023/07/07/%E6%BD%98%E7%81%AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E5%AD%A6/" target="_self">
+          潘火实验中学
+        </a>
+      </h2>
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-07T01:25:10.000Z" itemprop="datePublished">2023-07-07</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-             词 
-          </div>
+      
+      <a class="index-excerpt " href="/2023/07/07/%E6%BD%98%E7%81%AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E5%AD%A6/" target="_self">
+        <div>
+          全文 “第一所学校始于一棵大树下。” ——路易斯康  潘火实验中学坐落于凤起北路以东，潘火大道以南。学校毗邻宁波市人民政府和宁波文化广场，距离轨道交通4号线潘火站仅有500米。总览学校，我们的地上建筑共有5层，由8幢楼与连廊相连接，两排教学楼似叶脉状串连起来，寓意“未来”。校园内特地保留了一棵已有400多年树龄的明朝老槐树，象征着“十年树木，百年树人”的教育理念。我们的学校共设有两个大门——西门和
         </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%9C%E6%96%87/" rel="tag">作文</a></li></ul>
+      </a>
 
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
+      <div class="index-btm post-metas">
         
-          <div class="truncate-text">
-            全文——《名人传·贝多芬传》读后感
-夏日的阳光透过窗子懒懒地洒在书面上，我翻开了《名人传》中的《贝多芬传》，一股浓浓的书墨香向我袭来，我一时间有些好奇，那个伟大的音乐家的生平究竟是怎样的？让我们跟随罗曼·罗兰的脚步，走近这位伟大的音乐家。
-爱情——“绝缘体”贝多芬一生不断地钟情于人，一再为爱倾倒，却不断地遭受着爱情的打击，以及随之而来的痛苦煎熬。当他钟情于圭恰迪妮时，窘于自己的残疾，境况的艰难，无法娶他所爱的人。贝多芬为她作了著名的《月光曲》，也为这段爱情付出了高昂的代价。而圭恰迪妮的稚气、自私，也使贝多芬烦恼。最终，圭恰迪妮嫁给了贝格伯爵。圭恰迪妮还利用贝多芬从前的爱，要他帮助她的丈夫。而贝多芬也立刻答应了。我不得不被贝多芬的宽大胸怀所感染！正像他自己说的那样：“可怜的贝多芬，今生今世已经没有属于你的幸福。只有在理想的国度里，你才能找到幸福。”
-命运——“交响曲”其实，这位伟人，身体状况一直不容乐观……贝多芬一直生活在病魔摧残的世界里。但他却不曾诉苦——他封闭了自己，隐瞒自己的病，是不想让朋友亲人多操心，但病魔从未使他屈服。他曾畅想：
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-07 09:28" pubdate>
+              2023-07-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
-“噢，如果我摆脱了这疾病，我将拥抱世界”...  
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%BD%9C%E6%96%87/">#作文</a>
+            
           </div>
         
       </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/07/07/%E5%94%AF%E5%85%B6%E7%97%9B%E8%8B%A6%EF%BC%8C%E6%89%8D%E6%9C%89%E6%AC%A2%E4%B9%90/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+    </article>
   </div>
-  
-</article>
 
- 
-
-   
-
-<article id="post-午夜惊魂" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/07/07/%E5%94%AF%E5%85%B6%E7%97%9B%E8%8B%A6%EF%BC%8C%E6%89%8D%E6%9C%89%E6%AC%A2%E4%B9%90/" target="_self">
+          <img src="/img/Cover_Passage.jpg" srcset="/img/loading.gif" lazyload alt="唯其痛苦，才有欢乐">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
         
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/07/%E5%8D%88%E5%A4%9C%E6%83%8A%E9%AD%82/">午夜惊魂</a>
-      </h1>
-    
-  
-</div>
+        <a href="/2023/07/07/%E5%94%AF%E5%85%B6%E7%97%9B%E8%8B%A6%EF%BC%8C%E6%89%8D%E6%9C%89%E6%AC%A2%E4%B9%90/" target="_self">
+          唯其痛苦，才有欢乐
+        </a>
+      </h2>
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-07T01:20:46.000Z" itemprop="datePublished">2023-07-07</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-             词 
-          </div>
+      
+      <a class="index-excerpt " href="/2023/07/07/%E5%94%AF%E5%85%B6%E7%97%9B%E8%8B%A6%EF%BC%8C%E6%89%8D%E6%9C%89%E6%AC%A2%E4%B9%90/" target="_self">
+        <div>
+          全文——《名人传·贝多芬传》读后感 夏日的阳光透过窗子懒懒地洒在书面上，我翻开了《名人传》中的《贝多芬传》，一股浓浓的书墨香向我袭来，我一时间有些好奇，那个伟大的音乐家的生平究竟是怎样的？让我们跟随罗曼·罗兰的脚步，走近这位伟大的音乐家。 爱情——“绝缘体”贝多芬一生不断地钟情于人，一再为爱倾倒，却不断地遭受着爱情的打击，以及随之而来的痛苦煎熬。当他钟情于圭恰迪妮时，窘于自己的残疾，境况的艰难，无
         </div>
+      </a>
+
+      <div class="index-btm post-metas">
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%9C%E6%96%87/" rel="tag">作文</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-07 09:25" pubdate>
+              2023-07-07
+            </time>
+          </div>
         
-          <div class="truncate-text">
-            全文
-“嘘——别说了！教官来了！”
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
-只听门锁“咔嚓”一声，门开了，刺眼的走廊灯光照进了漆黑一片的寝室，一个黑色的身影出现在门口……
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
 
-或许是因为文艺表演太过于精彩和热闹，在午夜11点，我们寝室没有一个睡着的。瞧！寝室长曹泽鹏正趁着手表微弱的亮光奋笔疾书，许奥正拿着红色的应援棒在空中挥动，蔡宇轩在研究电话手表的奥秘，李承希正悠闲地哼着小曲……所以就出现了一幕幕惊悚的场景——在漆黑的寝室中，突然出现一道闪烁的红光，这红光映射出许奥惨红的笑脸；在静谧的寝室中，突然出现李承希诡异的歌声和笑声……值得一提的是蔡宇轩，或许是因为美式咖啡的加持，在短短的一个晚上，去了4趟厕所，真是一个医学奇迹！可是我们都心知肚明，一旦我们发出剧烈的响声，就会引来教官。正所谓“不敢高声语，恐惊‘门外’人。”尤其是李承希那极具穿透力的笑声，特别容易引起教官的注意……尽管我与何同学多次提醒了他，但他还是没控制住自己喜悦兴奋的情绪，肆无忌惮地笑了出来……随即，门外的走廊上传来了急促的脚步声，脚步声越来越近，越来越近，停留在了我们寝室的门口。两只鞋遮住了门缝底下的亮光。我们寝室顿时变得鸦雀无声，所有人的心都提到了嗓子...  
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%BD%9C%E6%96%87/">#作文</a>
+            
           </div>
         
       </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/07/07/%E5%8D%88%E5%A4%9C%E6%83%8A%E9%AD%82/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+    </article>
   </div>
-  
-</article>
 
- 
-
-   
-
-<article id="post-我的外婆" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/07/07/%E5%8D%88%E5%A4%9C%E6%83%8A%E9%AD%82/" target="_self">
+          <img src="/img/Cover_Passage.jpg" srcset="/img/loading.gif" lazyload alt="午夜惊魂">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
         
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/07/%E6%88%91%E7%9A%84%E5%A4%96%E5%A9%86/">我的外婆</a>
-      </h1>
-    
-  
-</div>
+        <a href="/2023/07/07/%E5%8D%88%E5%A4%9C%E6%83%8A%E9%AD%82/" target="_self">
+          午夜惊魂
+        </a>
+      </h2>
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-07T01:10:01.000Z" itemprop="datePublished">2023-07-07</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-             词 
-          </div>
+      
+      <a class="index-excerpt " href="/2023/07/07/%E5%8D%88%E5%A4%9C%E6%83%8A%E9%AD%82/" target="_self">
+        <div>
+          全文 “嘘——别说了！教官来了！”  只听门锁“咔嚓”一声，门开了，刺眼的走廊灯光照进了漆黑一片的寝室，一个黑色的身影出现在门口……  或许是因为文艺表演太过于精彩和热闹，在午夜11点，我们寝室没有一个睡着的。瞧！寝室长曹泽鹏正趁着手表微弱的亮光奋笔疾书，许奥正拿着红色的应援棒在空中挥动，蔡宇轩在研究电话手表的奥秘，李承希正悠闲地哼着小曲……所以就出现了一幕幕惊悚的场景——在漆黑的寝室中，突然出现
         </div>
+      </a>
+
+      <div class="index-btm post-metas">
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%9C%E6%96%87/" rel="tag">作文</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-07 09:20" pubdate>
+              2023-07-07
+            </time>
+          </div>
         
-          <div class="truncate-text">
-            全文
-“我吃过的苦，不会再让你们吃了。”
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
 
-1953年，我的外婆出生于一个贫农家庭。新中国刚成立不久，家境自然不算富裕。她家中有好多兄弟姐妹，她们一起生活在一个小山村里。外婆机智聪慧，在小学和初中，她的成绩总是名列前茅，正当她即将踏入高中的校门时，文化大革命突然爆发，外婆像很多人一样，被迫辍学，回到了农村里。外婆没有抱怨老天的不公，正如荀子所言：“自知者不怨人，知命者不怨天。”她回到农村里之后，几乎没有离开过劳动。她主动承担了家里的体力活。她每天起早贪黑，和母亲下地务农、上山砍柴。她从来没有一句怨言，这一次次早出晚归，让她真正体会到了劳动的艰辛与不易。就这样日复一日、年复一年的辛勤劳作，外婆终于长大成为了一名“壮丁”。她主动外出去矿洞打工。这是一个条件极其恶劣的矿洞。冬冷夏热，特别是隆冬，阵阵寒风刮过，好似刀割一般，脸上马上出现红丝。尽管再恶劣的自然环境，也抵御不了一个人坚定的信念。外婆觉得条件虽苦，只要能为家庭贡献出自己的一份力量，这辛苦——值了！
+      </span>
+    
+  
+</span>
 
-有一次，外婆无意间在村里的广播中听到熟悉的声音和名字，她震惊不已——这不是和她朝夕相处的初中同学吗！虽然同学的成绩还没她好，但...  
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%BD%9C%E6%96%87/">#作文</a>
+            
           </div>
         
       </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/07/07/%E6%88%91%E7%9A%84%E5%A4%96%E5%A9%86/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+    </article>
   </div>
-  
-</article>
 
- 
-
-   
-
-<article id="post-VB感染其他应用程序" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/07/07/%E6%88%91%E7%9A%84%E5%A4%96%E5%A9%86/" target="_self">
+          <img src="/img/Cover_Passage.jpg" srcset="/img/loading.gif" lazyload alt="我的外婆">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
         
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/06/VB%E6%84%9F%E6%9F%93%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">【VB】感染其他应用程序</a>
-      </h1>
-    
-  
-</div>
+        <a href="/2023/07/07/%E6%88%91%E7%9A%84%E5%A4%96%E5%A9%86/" target="_self">
+          我的外婆
+        </a>
+      </h2>
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-06T10:18:43.000Z" itemprop="datePublished">2023-07-06</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            690 词 
-          </div>
+      
+      <a class="index-excerpt " href="/2023/07/07/%E6%88%91%E7%9A%84%E5%A4%96%E5%A9%86/" target="_self">
+        <div>
+          全文 “我吃过的苦，不会再让你们吃了。”   1953年，我的外婆出生于一个贫农家庭。新中国刚成立不久，家境自然不算富裕。她家中有好多兄弟姐妹，她们一起生活在一个小山村里。外婆机智聪慧，在小学和初中，她的成绩总是名列前茅，正当她即将踏入高中的校门时，文化大革命突然爆发，外婆像很多人一样，被迫辍学，回到了农村里。外婆没有抱怨老天的不公，正如荀子所言：“自知者不怨人，知命者不怨天。”她回到农村里之后，
         </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Basic-6-0/" rel="tag">Visual Basic 6.0</a></li></ul>
+      </a>
 
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
+      <div class="index-btm post-metas">
         
-          <div class="truncate-text">
-            效果感染同目录下面的任意一个可执行文件，将被感染的程序内容替换成当前工程设置的程序内容，但不会执行感染操作。
-提示1.部分程序无法被感染，可能原因（①目标程序正在运行；②目标程序已加壳&#x2F;代码混淆器；③目标程序语法与VB不匹配）。2.编辑病毒文件时，最好不要纯模块，最好有一个窗体可以显示，以测试感染效果，也可以根据自己的需求适当添加其他东西。3.由于感染其他可执行文件需要管理员权限，所以我们的程序发布时要在工程设置中将产品名改为 Update 。
-代码Option Explicit
-Private Victim As String &#39;要感染的文件的名字
-Private HostLen As Long &#39;要感染的文件的大小
-Private vbArray() As Byte &#39;病毒的代码
-Private hArray() As Byte &#39;要感染的文件的代码
-Private lenght As Long
-Private MySize As Integer &#39;病毒的大小
-Private Declare Function OpenProc...  
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-07 09:10" pubdate>
+              2023-07-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%BD%9C%E6%96%87/">#作文</a>
+            
           </div>
         
       </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/07/06/VB%E6%84%9F%E6%9F%93%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+    </article>
   </div>
-  
-</article>
 
- 
-
-   
-
-<article id="post-《宇宙时空之旅：未知世界》观后感" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/07/06/VB%E6%84%9F%E6%9F%93%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" target="_self">
+          <img src="/img/Cover_VB6.png" srcset="/img/loading.gif" lazyload alt="【VB】感染其他应用程序">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
         
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/06/%E3%80%8A%E5%AE%87%E5%AE%99%E6%97%B6%E7%A9%BA%E4%B9%8B%E6%97%85%EF%BC%9A%E6%9C%AA%E7%9F%A5%E4%B8%96%E7%95%8C%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/">探索宇宙奥秘，感悟未知世界。</a>
-      </h1>
-    
-  
-</div>
+        <a href="/2023/07/06/VB%E6%84%9F%E6%9F%93%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" target="_self">
+          【VB】感染其他应用程序
+        </a>
+      </h2>
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-06T10:00:51.000Z" itemprop="datePublished">2023-07-06</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-             词 
-          </div>
+      
+      <a class="index-excerpt " href="/2023/07/06/VB%E6%84%9F%E6%9F%93%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" target="_self">
+        <div>
+          效果感染同目录下面的任意一个可执行文件，将被感染的程序内容替换成当前工程设置的程序内容，但不会执行感染操作。 提示1.部分程序无法被感染，可能原因（①目标程序正在运行；②目标程序已加壳&#x2F;代码混淆器；③目标程序语法与VB不匹配）。2.编辑病毒文件时，最好不要纯模块，最好有一个窗体可以显示，以测试感染效果，也可以根据自己的需求适当添加其他东西。3.由于感染其他可执行文件需要管理员权限，所以我
         </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A7%82%E5%90%8E%E6%84%9F/" rel="tag">观后感</a></li></ul>
+      </a>
 
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
+      <div class="index-btm post-metas">
         
-          <div class="truncate-text">
-            探索宇宙的奥秘，是人类永恒的追求。——《宇宙时空之旅：未知世界》观后感
-导语电影《宇宙时空之旅：未知世界》带领观众踏上一段惊险刺激的旅程，揭示了宇宙中的未知世界，让我们对宇宙的壮丽和神秘感受到了更深刻的理解。 
-一、穿越时空的奇妙之旅电影中，主人公通过一台神秘的时空穿梭器，进入了不同的时空维度。这一场景让我仿佛亲身经历了穿越时空的奇妙之旅。在电影中，我们看到了宇宙中的星系、行星和黑洞等壮丽景象，感受到了宇宙的无限广阔和神秘深邃。这种视觉冲击力让我不禁感叹宇宙的伟大和人类的渺小。
-二、未知世界的探索与发现电影中，主人公在不同的时空维度中遭遇了各种未知的生物和景象。这些未知世界的探索与发现，让我对宇宙中的生命多样性有了更深刻的认识。电影中的生物形态各异，有的像植物，有的像动物，有的甚至是无法想象的怪物。这些奇特的生物让我想起了地球上的生物多样性，也让我思考宇宙中是否存在着与地球生命完全不同的生物形态。
-三、人类与宇宙的关系电影中，主人公通过与未知世界的接触，逐渐认识到人类与宇宙的关系。宇宙是人类的摇篮，人类应该保护和珍惜宇宙资源。电影通过展示宇宙中的美丽景象和生命形态，呼吁人类要对宇...  
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-06 18:18" pubdate>
+              2023-07-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Visual-Basic-6-0/">#Visual Basic 6.0</a>
+            
           </div>
         
       </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/07/06/%E3%80%8A%E5%AE%87%E5%AE%99%E6%97%B6%E7%A9%BA%E4%B9%8B%E6%97%85%EF%BC%9A%E6%9C%AA%E7%9F%A5%E4%B8%96%E7%95%8C%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+    </article>
   </div>
-  
-</article>
 
- 
-
-   
-
-<article id="post-湖心亭看雪" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/07/06/%E3%80%8A%E5%AE%87%E5%AE%99%E6%97%B6%E7%A9%BA%E4%B9%8B%E6%97%85%EF%BC%9A%E6%9C%AA%E7%9F%A5%E4%B8%96%E7%95%8C%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" target="_self">
+          <img src="/img/Cover_Passage.jpg" srcset="/img/loading.gif" lazyload alt="探索宇宙奥秘，感悟未知世界。">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
         
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/06/%E6%B9%96%E5%BF%83%E4%BA%AD%E7%9C%8B%E9%9B%AA/">张岱《湖心亭看雪》</a>
-      </h1>
-    
-  
-</div>
+        <a href="/2023/07/06/%E3%80%8A%E5%AE%87%E5%AE%99%E6%97%B6%E7%A9%BA%E4%B9%8B%E6%97%85%EF%BC%9A%E6%9C%AA%E7%9F%A5%E4%B8%96%E7%95%8C%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" target="_self">
+          探索宇宙奥秘，感悟未知世界。
+        </a>
+      </h2>
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-06T09:01:27.000Z" itemprop="datePublished">2023-07-06</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-             词 
-          </div>
+      
+      <a class="index-excerpt " href="/2023/07/06/%E3%80%8A%E5%AE%87%E5%AE%99%E6%97%B6%E7%A9%BA%E4%B9%8B%E6%97%85%EF%BC%9A%E6%9C%AA%E7%9F%A5%E4%B8%96%E7%95%8C%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/" target="_self">
+        <div>
+          探索宇宙的奥秘，是人类永恒的追求。——《宇宙时空之旅：未知世界》观后感 导语电影《宇宙时空之旅：未知世界》带领观众踏上一段惊险刺激的旅程，揭示了宇宙中的未知世界，让我们对宇宙的壮丽和神秘感受到了更深刻的理解。  一、穿越时空的奇妙之旅电影中，主人公通过一台神秘的时空穿梭器，进入了不同的时空维度。这一场景让我仿佛亲身经历了穿越时空的奇妙之旅。在电影中，我们看到了宇宙中的星系、行星和黑洞等壮丽景象，感
         </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%AD%E6%96%87/" rel="tag">语文</a></li></ul>
+      </a>
 
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
+      <div class="index-btm post-metas">
         
-          <div class="truncate-text">
-            原文崇祯五年十二月，余住西湖。大雪三日，湖中人鸟声俱绝。是日更定矣，余拏一小舟，拥毳衣炉火，独往湖心亭看雪。雾凇沆砀，天与云与山与水，上下一白。湖上影子，惟长堤一痕、湖心亭一点、与余舟一芥、舟中人两三粒而已。到亭上，有两人铺毡对坐，一童子烧酒炉正沸。见余大喜曰：“湖中焉得更有此人！”拉余同饮。余强饮三大白而别。问其姓氏，是金陵人，客此。及下船，舟子喃喃曰：“莫说相公痴，更有痴似相公者。”
-译文崇祯五年十二月，我住在西湖边。大雪接连下了多日，湖中游人全无，连飞鸟的声音都消失了。这天初更时分，我撑着一叶小舟，裹着细毛皮衣，带着火炉，独自前往湖心亭看雪。湖面上冰花一片弥漫，天、云、山、水混为一体，白茫茫一片。湖上的影子，只有西湖长堤在雪中隐隐露出的一道痕迹，一点湖心亭的轮廓，和我的一叶小舟，舟中的两三粒人影罢了。到了湖心亭上，我看见有两人铺好毡子，相对而坐，一个童子正把酒炉里的酒烧得滚沸。他们看见我，非常高兴地说：“想不到在湖中还会有您这样有闲情逸致的人！”于是拉着我一同饮酒。我尽力喝了三大杯酒，然后和他们道别。问他们的姓氏，得知他们是金陵人，在此地客居。等到了下船的时候，船夫喃喃地说...  
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-06 18:00" pubdate>
+              2023-07-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%A7%82%E5%90%8E%E6%84%9F/">#观后感</a>
+            
           </div>
         
       </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/07/06/%E6%B9%96%E5%BF%83%E4%BA%AD%E7%9C%8B%E9%9B%AA/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+    </article>
   </div>
-  
-</article>
 
- 
-
-   
-
-<article id="post-POUI——全新VB开发框架" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/07/06/%E6%B9%96%E5%BF%83%E4%BA%AD%E7%9C%8B%E9%9B%AA/" target="_self">
+          <img src="/img/Cover_Study-Chinese-9-1.png" srcset="/img/loading.gif" lazyload alt="张岱《湖心亭看雪》">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
         
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/06/POUI%E2%80%94%E2%80%94%E5%85%A8%E6%96%B0VB%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">【VB】POUI——全新VB开发框架</a>
-      </h1>
-    
-  
-</div>
+        <a href="/2023/07/06/%E6%B9%96%E5%BF%83%E4%BA%AD%E7%9C%8B%E9%9B%AA/" target="_self">
+          张岱《湖心亭看雪》
+        </a>
+      </h2>
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-06T07:56:44.000Z" itemprop="datePublished">2023-07-06</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-             词 
-          </div>
+      
+      <a class="index-excerpt " href="/2023/07/06/%E6%B9%96%E5%BF%83%E4%BA%AD%E7%9C%8B%E9%9B%AA/" target="_self">
+        <div>
+          原文崇祯五年十二月，余住西湖。大雪三日，湖中人鸟声俱绝。是日更定矣，余拏一小舟，拥毳衣炉火，独往湖心亭看雪。雾凇沆砀，天与云与山与水，上下一白。湖上影子，惟长堤一痕、湖心亭一点、与余舟一芥、舟中人两三粒而已。到亭上，有两人铺毡对坐，一童子烧酒炉正沸。见余大喜曰：“湖中焉得更有此人！”拉余同饮。余强饮三大白而别。问其姓氏，是金陵人，客此。及下船，舟子喃喃曰：“莫说相公痴，更有痴似相公者。” 译文崇祯
         </div>
+      </a>
+
+      <div class="index-btm post-metas">
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Basic-6-0/" rel="tag">Visual Basic 6.0</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-06 17:01" pubdate>
+              2023-07-06
+            </time>
+          </div>
         
-          <div class="truncate-text">
-            ⚡简介优势POUI是一种全新的UI设计框架，它可以使VB6焕发新的生机与活力，带来无限可能。框架中的控件并非完全由我们创造，我们只是整合了一个资源框架包，我们并不会以此盈利，我们将所有控件都公开发布。
-版本2023年7月6日 Beta 版本（公测）
-构成它包含：
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
-POUI_DirectUI.dll（原“YFDirectUI.dll”）
-POUI_File.ocx（原“资源管理器.ocx”）
-POUI_Gif.ocx（原“AniGif.ocx”）
-POUI_Image.ocx（原“Image.ocx”）
-POUI_Main.ocx（原“YFUI.ocx”）
-POUI_Sub.ocx（原“Subclass.ocx”）
-POUI_Tray.ocx（原“NsTray.ocx”）
-RC6.dll
-其他注册附属文件、认证文件
-
-🔗下载网盘链接：☁蓝奏云网盘
+<span class="category-chains">
   
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AF%AD%E6%96%87/">#语文</a>
+            
           </div>
         
       </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/07/06/POUI%E2%80%94%E2%80%94%E5%85%A8%E6%96%B0VB%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+    </article>
   </div>
-  
-</article>
 
- 
-
-   
-
-<article id="post-醉翁亭记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/07/06/POUI%E2%80%94%E2%80%94%E5%85%A8%E6%96%B0VB%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" target="_self">
+          <img src="/img/Cover_Program_POUI.png" srcset="/img/loading.gif" lazyload alt="【VB】POUI——全新VB开发框架">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
         
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/07/04/%E9%86%89%E7%BF%81%E4%BA%AD%E8%AE%B0/">欧阳修《醉翁亭记》</a>
-      </h1>
-    
-  
-</div>
+        <a href="/2023/07/06/POUI%E2%80%94%E2%80%94%E5%85%A8%E6%96%B0VB%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" target="_self">
+          【VB】POUI——全新VB开发框架
+        </a>
+      </h2>
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-07-04T13:00:42.000Z" itemprop="datePublished">2023-07-04</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-             词 
-          </div>
+      
+      <a class="index-excerpt " href="/2023/07/06/POUI%E2%80%94%E2%80%94%E5%85%A8%E6%96%B0VB%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" target="_self">
+        <div>
+          ⚡简介优势POUI是一种全新的UI设计框架，它可以使VB6焕发新的生机与活力，带来无限可能。框架中的控件并非完全由我们创造，我们只是整合了一个资源框架包，我们并不会以此盈利，我们将所有控件都公开发布。 版本2023年7月6日 Beta 版本（公测） 构成它包含：  POUI_DirectUI.dll（原“YFDirectUI.dll”） POUI_File.ocx（原“资源管理器.ocx”） PO
         </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%AD%E6%96%87/" rel="tag">语文</a></li></ul>
+      </a>
 
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
+      <div class="index-btm post-metas">
         
-          <div class="truncate-text">
-            原文环滁(chú)皆山也。其西南诸峰，林壑尤美，望之蔚然而深秀者，琅(láng)琊(yá)也。山行六七里，渐闻水声潺潺，而泻出于两峰之间者，酿泉也。峰回路转，有亭翼然临于泉上者，醉翁亭也。作亭者谁？山之僧智仙也。名之者谁？太守自谓也。太守与客来饮于此，饮少辄(zhé)醉，而年又最高，故自号曰醉翁也。醉翁之意不在酒，在乎山水之间也。山水之乐，得之心而寓之酒也。若夫日出而林霏(fēi)开，云归而岩穴暝，晦明变化者，山间之朝暮也。野芳发而幽香，佳木秀而繁阴，风霜高洁，水落而石出者，山间之四时也。朝(zhāo)而往，暮而归，四时之景不同，而乐亦无穷也。至于负者歌于途，行者休于树，前者呼，后者应，伛(yú)偻(lǚ)提携，往来而不绝者，滁(chú)人游也。临溪而渔，溪深而鱼肥，酿泉为酒，泉香而酒洌，山肴野蔌(sù)，杂然而前陈者，太守宴也。宴酣之乐(yuè)，非丝非竹，射者中，弈者胜，觥(gōng)筹(chóu)交错，起坐而喧哗者，众宾欢也。苍颜白发，颓然乎其间者，太守醉也。已而夕阳在山，人影散乱，太守归而宾客从也。树林阴翳(yì)，鸣声上下，游人去而禽鸟乐(lè)也。然而禽鸟知山林之乐，...  
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-06 15:56" pubdate>
+              2023-07-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Visual-Basic-6-0/">#Visual Basic 6.0</a>
+            
           </div>
         
       </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/07/04/%E9%86%89%E7%BF%81%E4%BA%AD%E8%AE%B0/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+    </article>
   </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/07/04/%E9%86%89%E7%BF%81%E4%BA%AD%E8%AE%B0/" target="_self">
+          <img src="/img/Cover_Study-Chinese-9-1.png" srcset="/img/loading.gif" lazyload alt="欧阳修《醉翁亭记》">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/07/04/%E9%86%89%E7%BF%81%E4%BA%AD%E8%AE%B0/" target="_self">
+          欧阳修《醉翁亭记》
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2023/07/04/%E9%86%89%E7%BF%81%E4%BA%AD%E8%AE%B0/" target="_self">
+        <div>
+          原文环滁(chú)皆山也。其西南诸峰，林壑尤美，望之蔚然而深秀者，琅(láng)琊(yá)也。山行六七里，渐闻水声潺潺，而泻出于两峰之间者，酿泉也。峰回路转，有亭翼然临于泉上者，醉翁亭也。作亭者谁？山之僧智仙也。名之者谁？太守自谓也。太守与客来饮于此，饮少辄(zhé)醉，而年又最高，故自号曰醉翁也。醉翁之意不在酒，在乎山水之间也。山水之乐，得之心而寓之酒也。若夫日出而林霏(fēi)开，云归而岩穴暝
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-04 21:00" pubdate>
+              2023-07-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
   
-</article>
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
 
- 
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AF%AD%E6%96%87/">#语文</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
 
-  <nav id="page-nav">
-    <!-- 在第二页时 page.prev_link 不知为何无法返回正确的链接 -->
-    <a id="prev-btn" class="page-nav-btn disabled" href=" /  ">
-      <span class="material-symbols-rounded">navigate_before</span>
-    </a>
-    <div id="num-bar">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a>  
-    </div>
-    <a id="next-btn" class="page-nav-btn " href="/page/2/">
-      <span class="material-symbols-rounded">navigate_next</span>
-    </a>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
   </nav>
 
 
-    </div>
-    <div id="footer-wrapper">
-      <footer id="footer">
-  
-  <div id="footer-info" class="inner">
-    
-    &copy; 2023 Babu<br>
-    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
-  </div>
-</footer>
 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
-    <div class="back-to-top-wrapper">
-    <button id="back-to-top-btn" class="back-to-top-btn" onclick="topFunction()">
-        <span class="material-symbols-rounded">keyboard_arrow_up</span>
-    </button>
+  </div>
 </div>
 
-<script>
-    function topFunction() {
-        window.scroll({ top: 0, behavior: 'smooth' });
-    }
-    let btn = document.getElementById('back-to-top-btn');
-    function scrollFunction() {
-        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-            btn.style.opacity = 1;
-        } else {
-            btn.style.opacity = 0;
-        }
-    }
-    window.onscroll = function() {
-        scrollFunction();
-    }
-</script>
+    
 
-  </div>
-  <script src="/js/light-dark-switch.js"></script>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        jQuery.ajax({
+          type: 'GET',
+          url: 'https://api.7585.net.cn/shici/api.php',
+          headers: {},
+          dataType: 'json',
+          success: function(result) {
+            var apiText;
+            if (result) {
+              var keys = 'hitokoto'.split(',');
+              if (result instanceof Array) {
+                result = result[0];
+              }
+              for (const k of keys) {
+                var value = result[k];
+                if (typeof value === 'string') {
+                  apiText = value;
+                  break;
+                } else if (value instanceof Object) {
+                  result = value;
+                }
+              }
+            }
+            apiText ? typing(apiText) : typing(text);
+          },
+          error: function(xhr, status, error) {
+            if (error) {
+              console.error('Failed to request https://api.7585.net.cn/shici/api.php:', error);
+            }
+            typing(text);
+          }
+        })
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
