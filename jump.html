@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>🔒 您即将访问外部网站 - 布盾外链拦截</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .number {
+      font-size: 40px;
+      color: #666;
+      font-weight: bold;
+    }
+    .text {
+      font-size: 19px;
+      margin: 24px;
+      color: #a00702;
+    }
+    .urltext {
+      font-size: 19px;
+      margin: 24px;
+      color: #333;
+    }
+    .btn-container {
+      display: flex;
+      justify-content: center;
+    }
+    .btn {
+      padding: 8px 24px;
+      display: inline-block;
+      text-decoration: none;
+      background: #fff;
+      border: 2px solid #efefef;
+      color: #333;
+      margin: 24px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .footer {
+      padding: 16px;
+      border-top: 1px solid #efefef;
+      color: #777;
+      font-weight: lighter;
+    }
+    .footer a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="number">🔒 您即将前往外部网站</div>
+    <div class="text">您即将离开 Babu Blog。以下网站无法辨别内容的真实性，请谨慎访问</div>
+    <div class="urltext">
+      <span id="urlname"></span>
+    </div>
+    <div class="btn-container">
+      <a class="btn" id="go" href="">
+        ⚠ 继续
+      </a>
+    </div>
+  </div>
+  <footer class="footer">
+    Powered by 量子安全</a>
+  </footer>
+</html>
+<script>
+	// 获取当前url地址
+	var url = window.location.href;
+	// 截取传递的url参数
+	url = url.match(/url=(\S*)/)[1];
+    document.getElementById('urlname').innerHTML = url
+    document.getElementById('go').href = url
+</script>
