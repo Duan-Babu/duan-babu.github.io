@@ -10,13 +10,12 @@
     <script src="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css" rel="stylesheet">
+
     <style>
         body {
             background-color: #eef1f5;
-        }
-        .responsive-video {
-            width: 1920px;
-            height: 700px;
         }
     </style>
 </head>
@@ -128,18 +127,28 @@
     }
 
     // 构建请求头
-    const headers = new Headers();
-    headers.append('Referer', 'https://www.bilibili.com');
+    const headersHome = new Headers();
+    headersHome.append('Referer', 'https://www.bilibili.com');
 
     // 构建请求配置
-    const requestConfig = {
+    const requestConfigHome = {
     method: 'GET',
-    headers: headers
+    headers: headersHome
+    };
+
+    // 构建请求头
+    const headersUP = new Headers();
+    headersUP.append('Referer', 'https://space.bilibili.com/');
+
+    // 构建请求配置
+    const requestConfigUP = {
+    method: 'GET',
+    headers: headersUP
     };
 
     // 下载 JSON 数据并解析其中的 URL
     function downloadAndParseJson(url) {
-      fetch(url,requestConfig)
+      fetch(url,requestConfigHome)
         .then(response => response.json())
         .then(data => {
           const videoUrl = data.data.url;
@@ -150,7 +159,7 @@
 
     // 下载 JSON 数据并解析其中的 URL（用户）
     function downloadAndParseJsonU(Userurl) {
-      fetch(Userurl,requestConfig)
+      fetch(Userurl,requestConfigUP)
         .then(response => response.json())
         .then(data => {
           const UserName = data.data.owner.name;
@@ -171,6 +180,11 @@
 
     // 主函数
     function main() {
+    Swal.fire(
+        '🔒访问受限',
+        '部分浏览器不支持Referer，建议在谷歌浏览器内使用<br>⚠️请在浏览器访问',
+        'info'
+    )
       const urlParameter = getUrlParameter();
       if (urlParameter && urlParameter.epId && urlParameter.accessKey) {
         const url = 'https://api.xingzhige.com/API/b_bangumi/?ep_id=' + urlParameter.epId + '&access_key=' + urlParameter.accessKey;
