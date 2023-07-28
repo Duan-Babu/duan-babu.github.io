@@ -127,9 +127,19 @@
         };
     }
 
+    // 构建请求头
+    const headers = new Headers();
+    headers.append('Referer', 'https://www.bilibili.com');
+
+    // 构建请求配置
+    const requestConfig = {
+    method: 'GET',
+    headers: headers
+    };
+
     // 下载 JSON 数据并解析其中的 URL
     function downloadAndParseJson(url) {
-      fetch(url)
+      fetch(url,requestConfig)
         .then(response => response.json())
         .then(data => {
           const videoUrl = data.data.url;
@@ -140,7 +150,7 @@
 
     // 下载 JSON 数据并解析其中的 URL（用户）
     function downloadAndParseJsonU(Userurl) {
-      fetch(Userurl)
+      fetch(Userurl,requestConfig)
         .then(response => response.json())
         .then(data => {
           const UserName = data.data.owner.name;
@@ -148,16 +158,6 @@
           document.getElementById('UserName').textContent=UserName;
           const titleElement = document.querySelector('title');
           titleElement.textContent = '哔哩分享姬 | ' + UserName;
-        })
-        .catch(error => console.error('Error:', error));
-    }
-
-    // 下载 JSON 数据并解析其中的 URL（BV）
-    function downloadAndParseJsonB(Bvurl) {
-      fetch(Bvurl)
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('Video-Title').textContent=data.data.video.title;
         })
         .catch(error => console.error('Error:', error));
     }
