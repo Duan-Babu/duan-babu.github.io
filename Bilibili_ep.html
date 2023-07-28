@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>哔哩分享姬</title>
+    <link rel="icon" href="https://www.bilibili.com/favicon.ico?v=1" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.css" />
+    <link rel="stylesheet" href="https://bucket.kinh.cc/CSS/MDUI.css" />
+    <script src="https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script>
+    <script src="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <style>
+        body {
+            background-color: #eef1f5;
+        }
+        .responsive-video {
+            width: 1920px;
+            height: 700px;
+        }
+    </style>
+</head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo">
+    <header class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-theme">
+            <button mdui-drawer="{target:'#MainDrawer'}" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'菜单'}">
+                <i class="mdui-icon material-icons">menu</i>
+            </button>
+
+            <a href="./" class="mdui-typo-headline" mdui-tooltip="{content:'点击跳转到哔哩分享姬介绍页面'}">哔哩分享姬</a>
+        </div>
+    </header>
+    <div class="mdui-drawer mdui-drawer-close" id="MainDrawer">
+        <div class="mdui-list">
+            <a id="ToggleHome" class="mdui-list-item" style="border-radius: 0px">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-indigo">home</i>
+                <div class="mdui-list-item-content">首页</div>
+            </a>
+
+            <a id="ToggleAPPS" class="mdui-list-item" style="border-radius: 0px">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">apps</i>
+                <div class="mdui-list-item-content">软件下载</div>
+            </a>
+
+            <a id="ToggleWeb" class="mdui-list-item" style="border-radius: 0px">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">web</i>
+                <div class="mdui-list-item-content">网页版</div>
+            </a>
+
+            <a id="ToggleTutorial" class="mdui-list-item" style="border-radius: 0px">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-purple">book</i>
+                <div class="mdui-list-item-content">教程</div>
+            </a>
+
+            <div class="mdui-divider"></div>
+
+            <a id="ToggleGroup" class="mdui-list-item" style="border-radius: 0px">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">person_add</i>
+                <div class="mdui-list-item-content">交流群</div>
+            </a>
+
+            <div class="mdui-divider"></div>
+
+            <a id="ToggleTOS" class="mdui-list-item" style="border-radius: 0px">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-teal">import_contacts</i>
+                <div class="mdui-list-item-content">服务条款</div>
+            </a>
+
+            <div class="mdui-divider"></div>
+
+            <li class="mdui-list-item" mdui-drawer-close="{target:'#main-drawer'}" style="border-radius: 0px">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue-grey">chevron_left</i>
+                <div class="mdui-list-item-content">收起菜单</div>
+            </li>
+        </div>
+    </div>
+    <div id="Home">
+        <div class="mdui-container mdui-p-t-3">
+            <div class="mdui-col">
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">✨欢迎使用哔哩分享姬~( •̀ ω •́ )✧</div>
+                        <div class="mdui-card-primary-subtitle">🚫以下内容来自哔哩哔哩，禁止转载和下载</div>  
+                        <div class="mdui-card-primary-subtitle" id="ep">❌当前为ep分享模式，ep号为空，无法解析！请联系分享者处理</div> 
+                    </div>
+                </div>
+                <br>
+                <div class="mdui-card">
+                    <video id="video" controls="controls" class="mdui-video-fluid"></video>
+                </div>
+                <br>
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">视频分享</div>
+                        <div class="mdui-card-primary-subtitle">来自用户的分享</div>  
+                            <div class="mdui-chip">
+                              <img class="mdui-chip-icon" id="UserImage" src=""/>
+                              <span class="mdui-chip-title" id="UserName">匿名用户</span>
+                            </div>  
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="height: 68px"></div>
+    <footer class="mdui-typo" style="left: 0px">
+        <p>2023 由 <a style="font-weight: 600" href="https://babu.fanmao.pro">Babu</a> 开发，版权归 <a style="font-weight: 600" href="https://www,bilibili.com">哔哩哔哩</a> 所有 </p>
+    </footer>
+  <script>
+    // 获取地址栏中的链接参数
+    function getUrlParameter() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const epId = urlParams.get('ep_id');
+        if (epId) {
+            // 执行相应的代码
+            document.getElementById('ep').textContent='✔️当前为ep分享模式 [' + epId +']';
+        } 
+        const accessKey = urlParams.get('access_key');
+        const Usermid = urlParams.get('mid');
+        return {
+            epId: epId ? decodeURIComponent(epId) : '',
+            accessKey: accessKey ? decodeURIComponent(accessKey) : '',
+            Usermid: Usermid ? decodeURIComponent(Usermid) : '',
+        };
+    }
+
+    // 下载 JSON 数据并解析其中的 URL
+    function downloadAndParseJson(url) {
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const videoUrl = data.data.url;
+          playVideo(videoUrl);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    // 下载 JSON 数据并解析其中的 URL（用户）
+    function downloadAndParseJsonU(Userurl) {
+      fetch(Userurl)
+        .then(response => response.json())
+        .then(data => {
+          const UserName = data.data.owner.name;
+          document.getElementById('UserImage').src=data.data.owner.face;
+          document.getElementById('UserName').textContent=UserName;
+          const titleElement = document.querySelector('title');
+          titleElement.textContent = '哔哩分享姬 | ' + UserName;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    // 下载 JSON 数据并解析其中的 URL（BV）
+    function downloadAndParseJsonB(Bvurl) {
+      fetch(Bvurl)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('Video-Title').textContent=data.data.video.title;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    
+    // 播放视频
+    function playVideo(videoUrl) {
+      const video = document.getElementById('video');
+      video.src = videoUrl;
+      video.play();
+    }
+
+    // 主函数
+    function main() {
+      const urlParameter = getUrlParameter();
+      if (urlParameter && urlParameter.epId && urlParameter.accessKey) {
+        const url = 'https://api.xingzhige.com/API/b_bangumi/?ep_id=' + urlParameter.epId + '&access_key=' + urlParameter.accessKey;
+        const userurl= 'https://api.xingzhige.com/API/b_personal/?mid=' + urlParameter.Usermid;
+        downloadAndParseJson(url);
+        downloadAndParseJsonU(userurl);
+      } else {
+        console.error('URL 参数缺失');
+      }
+    }
+
+    // 执行主函数
+    main();
+  </script>
+</body>
+</html>
