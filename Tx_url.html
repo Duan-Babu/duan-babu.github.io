@@ -4,22 +4,110 @@
     <title>极光分享姬</title>
     <meta name="referrer" content="no-referrer" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="https://www.bilibili.com/favicon.ico?v=1" />
+    <link rel="icon" href="https://v.qq.com/favicon.ico" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.css" />
-    <link rel="stylesheet" href="https://bucket.kinh.cc/CSS/MDUI.css" />
     <script src="https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script>
     <script src="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/qrcode-generator/1.4.4/qrcode.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css" rel="stylesheet">
-
+    <script src="https://cdn.bootcss.com/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>
+    <link href="https://cdn.bootcss.com/limonte-sweetalert2/8.11.8/sweetalert2.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #eef1f5;
         }
+        .responsive-video {
+                width: 1048576px;
+                height: 640px;
+            }
+        .mdui-card {
+        border-radius: 12px;
+        }
+
+        .mdui-dialog {
+            border-radius: 12px;
+        }
+
+        .mdui-btn-block {
+            border-radius: 12px;
+        }
+
+        .mdui-btn {
+            border-radius: 12px;
+        }
+
+        .mdui-video-fluid {
+            border-radius: 12px;
+        }
+
+        .mdui-menu-open {
+            border-radius: 12px;
+        }
+
+        .mdui-table-fluid {
+            border-radius: 12px;
+        }
+
+        .mdui-panel-item {
+            border-radius: 12px;
+        }
+
+        .mdui-toolbar {
+            height: 64px;
+            line-height: 64px;
+        }
+
+        .mdui-btn,
+        .mdui-fab {
+            text-transform: none;
+        }
+
+        .mdui-appbar .mdui-toolbar {
+            height: 64px;
+            line-height: 64px;
+        }
+
+        .mdui-appbar-with-toolbar {
+            padding-top: 64px;
+        }
+
+        .mdui-overlay {
+            backdrop-filter: blur(7px);
+        }
+
+        .mdui-card {
+            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 1px 5px 0 rgb(0 0 0 / 16%);
+        }
+
+        .mdui-drawer {
+            width: 250px;
+            z-index: 2048;
+            box-shadow: -1px 10px 10px 0 rgb(60 64 67/30%), 0 1px 3px 1px rgb(60 64 67/15%);
+        }
     </style>
+    <script>
+        function getWebsiteTitle(url) {
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                var parser = new DOMParser();
+                var htmlDoc = parser.parseFromString(xhr.responseText, "text/html");
+                var titleElement = htmlDoc.querySelector("title");
+                var title = titleElement ? titleElement.textContent : "无标题视频";
+                
+                document.getElementById("result").innerHTML = "🎬 " + title;
+              } else {
+                document.getElementById("result").innerHTML = "🎬 无标题视频";
+              }
+            }
+          };
+          
+          xhr.open("GET", url, true);
+          xhr.send();
+        }
+      </script>
 </head>
 <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo">
     <header class="mdui-appbar mdui-appbar-fixed">
@@ -27,12 +115,14 @@
             <button mdui-drawer="{target:'#MainDrawer'}" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'菜单'}">
                 <i class="mdui-icon material-icons">&#xe5d2;</i>
             </button>
-
             <a href="./" class="mdui-typo-headline" mdui-tooltip="{content:'点击跳转到极光分享姬介绍页面'}">极光分享姬</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '深色样式切换', position: 'left'}" id="DarkStyle"><i class="mdui-icon material-icons">brightness_4</i></button>
+        </div>
         </div>
     </header>
-    <nav class="drawer mdui-drawer-full-height mdui-drawer-close" id="MainDrawer">
-        <ul class="mdui-list">
+    <div class="mdui-drawer mdui-drawer-close" id="MainDrawer">
+        <div class="mdui-list">
             <a id="ToggleHome" class="mdui-list-item" style="border-radius: 0px">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-indigo">home</i>
                 <div class="mdui-list-item-content">首页</div>
@@ -73,8 +163,8 @@
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue-grey">chevron_left</i>
                 <div class="mdui-list-item-content">收起菜单</div>
             </li>
-        </ul>
-    </nav>
+        </div>
+    </div>
     <div id="Home">
         <div class="mdui-container mdui-p-t-3">
             <div class="mdui-col">
@@ -87,16 +177,16 @@
                 </div>
                 <br>
                 <div class="mdui-card">
-                    <video id="video" controls="controls" class="mdui-video-fluid"></video>
+                    <div class="mdui-card-primary"  style="height: 680px">
+                    <div class="mdui-card-primary-title" id="result">无标题视频</div><br>
+                    <iframe src="https://jx.jsonplayer.com/player/?url=" id="myiframe" scrolling="no" frameborder="0" height="90%" width="100%" onload="changeFrameHeight()" frameborder="0"></iframe></div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div style="height: 68px"></div>
-    <footer class="mdui-typo" style="left: 0px">
-        <p>2023 由 <a style="font-weight: 600" href="https://babu.fanmao.pro">Babu</a> 开发，API支持 <a style="font-weight: 600" href="https://xiaoapi.cn/">慕名</a>，版权归 <a style="font-weight: 600" href="https://v.qq.com">腾讯视频</a> 所有 </p>
-    </footer>
+    <div class="mdui-m-t-2 mdui-text-center mdui-typo">
+        <p>2023 由 <a style="font-weight: 600" href="https://babu.fanmao.pro">Babu</a> 开发，由 <a style="font-weight: 600" href="https://www.jsonplayer.com/">JSONPlayer播放器</a> 支持，版权归 <a style="font-weight: 600" href="https://www.bilibili.com">哔哩哔哩</a> 所有 </p>
+    </div>
   <script>
     // 获取地址栏中的链接参数
     function getUrlParameter() {
@@ -114,56 +204,83 @@
         };
     }
 
-    // 构建请求头
-    const headersHome = new Headers();
-    headersHome.append('Referer', 'https://xiaoapi.cn/');
-
-    // 构建请求配置
-    const requestConfigHome = {
-        method: 'GET', // 如果是get方式的话，只能把参数拼接在url里传过去，get方式不能有body
-        "Access-Control-Allow-Origin" : "*",
-        "Access-Control-Allow-Credentials" : true,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    };
-
-    // 下载 JSON 数据并解析其中的 URL
-    function downloadAndParseJson(url) {
-      fetch(url,requestConfigHome)
-        .then(response => response.json())
-        .then(data => {
-          const videoUrl = data.url;
-          playVideo(videoUrl);
-        })
-        .catch(error => console.error('Error:', error));
-    }
-
-    // 播放视频
-    function playVideo(videoUrl) {
-      const video = document.getElementById('video');
-      video.src = videoUrl;
-      video.play();
-    }
-
     // 主函数
     function main() {
-    Swal.fire(
-        '🔒访问受限',
-        '部分浏览器不支持Referer，建议在谷歌浏览器内使用<br>⚠️请在浏览器访问',
-        'info'
-    )
-      const urlParameter = getUrlParameter();
-      if (urlParameter) {
-        const url = 'https://xiaoapi.cn/API/jx_tx2.php?url=' + urlParameter.str_url;
-        downloadAndParseJson(url);
-      } else {
-        console.error('URL 参数缺失');
-      }
-    }
+        var isWechat= (function(){
+        return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+        }
+        )();
+        if(isWechat){
+            Swal.fire(
+            '🔒访问受限',
+            '您正在使用微信浏览页面<br>⚠️请在浏览器访问',
+            'error'
+            )
+        }else {
+            Swal.fire(
+            '浏览器检测通过♪(^∇^*)',
+            '请稍后，资源正在加载中',
+            'success'
+            ) 
+        }
+        const urlParameter = getUrlParameter();
+        if (urlParameter) {
+            const url = 'https://jx.jsonplayer.com/player/?url=' + urlParameter.str_url;
+            document.getElementById('myiframe').src=url
+            getWebsiteTitle(urlParameter.str_url);
+        } else {
+            Swal.fire(
+            '参数缺失',
+            'URL参数缺失，请联系分享者处理',
+            'error'
+            )
+        }
 
-    // 执行主函数
+    }
+     // 执行主函数
     main();
   </script>
+  <!--set iframe height  -->
+  <script type="text/javascript">
+    function changeFrameHeight(){
+        var iframe= document.getElementById("myiframe");
+        iframe.height = iframe.contentDocument.body.clientHeight;
+    }
+    window.οnresize=function(){
+        changeFrameHeight();
+    }
+</script>
+  <script>
+        // 深色样式
+        function toggleStyle() {
+            if (localStorage.getItem("style") != '') {
+                if (localStorage.getItem("style") == 'dark') {
+                    setStyleLight();
+                } else {
+                    setStyleDark();
+                }
+            } else {
+                var time = (new Date).getHours();
+                if('6' < time && time < '18') {
+                    setStyleLight()
+                }
+            }
+        }
+        function setStyleDark() {
+            $('body').addClass('mdui-theme-layout-dark');
+            localStorage.setItem("style", "dark");
+        }
+        function setStyleLight() {
+            $('body').removeClass('mdui-theme-layout-dark');
+            localStorage.setItem("style", "light");
+        }
+        if ("light" != typeof Storage) {
+            "light" === localStorage.getItem("style") && setStyleLight();
+        }
+        $('#DarkStyle').click(function() {
+            toggleStyle();
+        });
+  </script>
+  <script src="https://api.vvhan.com/api/yinghua"></script>
 </body>
 </html>

@@ -164,7 +164,7 @@
                         <div class="mdui-card-primary-title">视频分享</div>
                         <div class="mdui-card-primary-subtitle" id="用户类别">来自 匿名用户 的分享</div>  
                             <div class="mdui-chip">
-                              <img class="mdui-chip-icon" id="UserImage" src=""/>
+                              <img class="mdui-chip-icon" id="UserImage" src="https://vfiles.gtimg.cn/vupload/202005/07_common_avatar.png"/>
                               <span class="mdui-chip-title" id="UserName">匿名用户</span>
                             </div>  
                         <br/>
@@ -280,7 +280,7 @@
             )
         }else {
             Swal.fire(
-            '常规模式',
+            '浏览器检测通过♪(^∇^*)',
             '请稍后，资源正在加载中',
             'success'
             ) 
@@ -292,12 +292,47 @@
             downloadAndParseJson(url);
             downloadAndParseJsonU(userurl);
         } else {
-            console.error('URL 参数缺失');
+            Swal.fire(
+            '参数缺失',
+            'URL参数缺失，请联系分享者处理',
+            'error'
+            )
         }
         }
         // 执行主函数
         main();
   </script>
-  <script src="https://jessegary.github.io/media/js/modify.js"></script>
+  <script>
+    // 深色样式
+    function toggleStyle() {
+        if (localStorage.getItem("style") != '') {
+            if (localStorage.getItem("style") == 'dark') {
+                setStyleLight();
+            } else {
+                setStyleDark();
+            }
+        } else {
+            var time = (new Date).getHours();
+            if('6' < time && time < '18') {
+                setStyleLight()
+            }
+        }
+    }
+    function setStyleDark() {
+        $('body').addClass('mdui-theme-layout-dark');
+        localStorage.setItem("style", "dark");
+    }
+    function setStyleLight() {
+        $('body').removeClass('mdui-theme-layout-dark');
+        localStorage.setItem("style", "light");
+    }
+    if ("light" != typeof Storage) {
+        "light" === localStorage.getItem("style") && setStyleLight();
+    }
+    $('#DarkStyle').click(function() {
+        toggleStyle();
+    });
+</script>
+  <script src="https://api.vvhan.com/api/yinghua"></script>
 </body>
 </html>
