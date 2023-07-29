@@ -7,13 +7,12 @@
     <link rel="icon" href="https://www.bilibili.com/favicon.ico?v=1" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.css" />
-    <link rel="stylesheet" href="https://bucket.kinh.cc/CSS/MDUI.css" />
     <script src="https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script>
     <script src="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/qrcode-generator/1.4.4/qrcode.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>
+<link href="https://cdn.bootcss.com/limonte-sweetalert2/8.11.8/sweetalert2.min.css" rel="stylesheet">
 
     <style>
         body {
@@ -23,20 +22,84 @@
                 width: 1048576px;
                 height: 640px;
             }
+            .mdui-card {
+    border-radius: 12px;
+    }
+
+    .mdui-dialog {
+        border-radius: 12px;
+    }
+
+    .mdui-btn-block {
+        border-radius: 12px;
+    }
+
+    .mdui-btn {
+        border-radius: 12px;
+    }
+
+    .mdui-video-fluid {
+        border-radius: 12px;
+    }
+
+    .mdui-menu-open {
+        border-radius: 12px;
+    }
+
+    .mdui-table-fluid {
+        border-radius: 12px;
+    }
+
+    .mdui-panel-item {
+        border-radius: 12px;
+    }
+
+    .mdui-toolbar {
+        height: 64px;
+        line-height: 64px;
+    }
+
+    .mdui-btn,
+    .mdui-fab {
+        text-transform: none;
+    }
+
+    .mdui-appbar .mdui-toolbar {
+        height: 64px;
+        line-height: 64px;
+    }
+
+    .mdui-appbar-with-toolbar {
+        padding-top: 64px;
+    }
+
+    .mdui-overlay {
+        backdrop-filter: blur(7px);
+    }
+
+    .mdui-card {
+        box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 1px 5px 0 rgb(0 0 0 / 16%);
+    }
+
+    .mdui-drawer {
+        box-shadow: -1px 10px 10px 0 rgb(60 64 67/30%), 0 1px 3px 1px rgb(60 64 67/15%);
+    }
     </style>
 </head>
 <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo">
     <header class="mdui-appbar mdui-appbar-fixed">
         <div class="mdui-toolbar mdui-color-theme">
             <button mdui-drawer="{target:'#MainDrawer'}" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'菜单'}">
-                <i class="mdui-icon material-icons">menu</i>
+                <i class="mdui-icon material-icons">&#xe5d2;</i>
             </button>
-
             <a href="./" class="mdui-typo-headline" mdui-tooltip="{content:'点击跳转到哔哩分享姬介绍页面'}">哔哩分享姬</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '深色样式切换', position: 'left'}" id="DarkStyle"><i class="mdui-icon material-icons">brightness_4</i></button>
+        </div>
         </div>
     </header>
-    <div class="mdui-drawer mdui-drawer-close" id="MainDrawer">
-        <div class="mdui-list">
+    <nav class="mdui-drawer mdui-drawer-full-height mdui-drawer-close" id="MainDrawer">
+        <ul class="mdui-list">
             <a id="ToggleHome" class="mdui-list-item" style="border-radius: 0px">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-indigo">home</i>
                 <div class="mdui-list-item-content">首页</div>
@@ -77,8 +140,8 @@
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue-grey">chevron_left</i>
                 <div class="mdui-list-item-content">收起菜单</div>
             </li>
-        </div>
-    </div>
+        </ul>
+    </nav>
     <div id="Home">
         <div class="mdui-container mdui-p-t-3">
             <div class="mdui-col">
@@ -123,16 +186,9 @@
             </div>
         </div>
     </div>
-    
-    <div style="height: 68px"></div>
-    <footer class="mdui-typo" style="left: 0px">
+    <div class="mdui-m-t-2 mdui-text-center mdui-typo">
         <p>2023 由 <a style="font-weight: 600" href="https://babu.fanmao.pro">Babu</a> 开发，由 <a style="font-weight: 600" href="https://api.xingzhige.com/">星之阁API</a> 支持，版权归 <a style="font-weight: 600" href="https://www.bilibili.com">哔哩哔哩</a> 所有 </p>
-    </footer>
-    <style>
-        .swal2-container {
-            z-index: 9216;
-        }
-    </style>
+    </div>
   <script>
     // 获取地址栏中的链接参数
     function getUrlParameter() {
@@ -221,7 +277,11 @@
             'error'
             )
         }else {
-            
+            Swal.fire(
+            '常规模式',
+            '请稍后，资源正在加载中',
+            'success'
+            ) 
         }
         const urlParameter = getUrlParameter();
         if (urlParameter && urlParameter.epId && urlParameter.accessKey) {
@@ -236,5 +296,6 @@
         // 执行主函数
         main();
   </script>
+  <script src="https://jessegary.github.io/media/js/modify.js"></script>
 </body>
 </html>

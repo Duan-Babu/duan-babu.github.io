@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>极光分享姬</title>
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="https://www.bilibili.com/favicon.ico?v=1" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.css" />
@@ -23,14 +25,14 @@
     <header class="mdui-appbar mdui-appbar-fixed">
         <div class="mdui-toolbar mdui-color-theme">
             <button mdui-drawer="{target:'#MainDrawer'}" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'菜单'}">
-                <i class="mdui-icon material-icons">menu</i>
+                <i class="mdui-icon material-icons">&#xe5d2;</i>
             </button>
 
             <a href="./" class="mdui-typo-headline" mdui-tooltip="{content:'点击跳转到极光分享姬介绍页面'}">极光分享姬</a>
         </div>
     </header>
-    <div class="mdui-drawer mdui-drawer-close" id="MainDrawer">
-        <div class="mdui-list">
+    <nav class="drawer mdui-drawer-full-height mdui-drawer-close" id="MainDrawer">
+        <ul class="mdui-list">
             <a id="ToggleHome" class="mdui-list-item" style="border-radius: 0px">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-indigo">home</i>
                 <div class="mdui-list-item-content">首页</div>
@@ -71,8 +73,8 @@
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue-grey">chevron_left</i>
                 <div class="mdui-list-item-content">收起菜单</div>
             </li>
-        </div>
-    </div>
+        </ul>
+    </nav>
     <div id="Home">
         <div class="mdui-container mdui-p-t-3">
             <div class="mdui-col">
