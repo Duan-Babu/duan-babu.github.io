@@ -113,6 +113,10 @@
                                     <div class="mdui-card-primary-subtitle">粉丝</div>
                                     <div class="mdui-card-primary-title" id="fans">0</div>
                                 </div>
+                                <div class="mdui-col-sm-2 mdui-col-xs-4">
+                                    <div class="mdui-card-primary-subtitle">等级</div>
+                                    <div class="mdui-card-primary-title" id="level">0</div>
+                                </div>
                             </div>
                     </div>
                 </div>
@@ -122,7 +126,7 @@
     
     <div style="height: 68px"></div>
     <footer class="mdui-typo" style="left: 0px">
-        <p>2023 由 <a style="font-weight: 600" href="https://babu.fanmao.pro">Babu</a> 开发，API支持 <a style="font-weight: 600" href="https://api.xingzhige.com/">星之阁</a>，版权归 <a style="font-weight: 600" href="https://www.bilibili.com">哔哩哔哩</a> 所有 </p>
+        <p>2023 由 <a style="font-weight: 600" href="https://babu.fanmao.pro">Babu</a> 开发，由 <a style="font-weight: 600" href="https://api.xingzhige.com/">星之阁API</a> 支持，版权归 <a style="font-weight: 600" href="https://www.bilibili.com">哔哩哔哩</a> 所有 </p>
     </footer>
     <style>
         .swal2-container {
@@ -190,6 +194,7 @@
           document.getElementById('用户类别').textContent='来自 ' + data.data.owner.title_array.vip + ' 的分享';
           document.getElementById('follow').textContent=data.data.fans.following;
           document.getElementById('fans').textContent=data.data.fans.follower;
+          document.getElementById('level').textContent=data.data.owner.level;
           const titleElement = document.querySelector('title');
           titleElement.textContent = '哔哩分享姬 | ' + UserName;
         })
@@ -212,25 +217,24 @@
         if(isWechat){
             Swal.fire(
             '🔒访问受限',
-            '您正在微信浏览界面，可能出现无法访问的问题<br>⚠️请在浏览器访问',
+            '您正在使用微信浏览页面<br>⚠️请在浏览器访问',
             'error'
             )
         }else {
             
         }
-      const urlParameter = getUrlParameter();
-      if (urlParameter && urlParameter.epId && urlParameter.accessKey) {
-        const url = 'https://api.xingzhige.com/API/b_bangumi/?ep_id=' + urlParameter.epId + '&access_key=' + urlParameter.accessKey;
-        const userurl= 'https://api.xingzhige.com/API/b_personal/?mid=' + urlParameter.Usermid;
-        downloadAndParseJson(url);
-        downloadAndParseJsonU(userurl);
-      } else {
-        console.error('URL 参数缺失');
-      }
-    }
-
-    // 执行主函数
-    main();
+        const urlParameter = getUrlParameter();
+        if (urlParameter && urlParameter.epId && urlParameter.accessKey) {
+            const url = 'https://api.xingzhige.com/API/b_bangumi/?ep_id=' + urlParameter.epId + '&access_key=' + urlParameter.accessKey;
+            const userurl= 'https://api.xingzhige.com/API/b_personal/?mid=' + urlParameter.Usermid;
+            downloadAndParseJson(url);
+            downloadAndParseJsonU(userurl);
+        } else {
+            console.error('URL 参数缺失');
+        }
+        }
+        // 执行主函数
+        main();
   </script>
 </body>
 </html>
