@@ -205,11 +205,19 @@
 
     // 主函数
     function main() {
-    Swal.fire(
-        '🔒访问受限',
-        '部分浏览器不支持Referer，建议在谷歌浏览器内使用<br>⚠️请在浏览器访问',
-        'info'
-    )
+        var isWechat= (function(){
+        return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+        }
+        )();
+        if(isWechat){
+            Swal.fire(
+            '🔒访问受限',
+            '您正在微信浏览界面，可能出现无法访问的问题<br>⚠️请在浏览器访问',
+            'error'
+            )
+        }else {
+            
+        }
       const urlParameter = getUrlParameter();
       if (urlParameter && urlParameter.epId && urlParameter.accessKey) {
         const url = 'https://api.xingzhige.com/API/b_bangumi/?ep_id=' + urlParameter.epId + '&access_key=' + urlParameter.accessKey;
