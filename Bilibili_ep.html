@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>哔哩分享姬</title>
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="https://www.bilibili.com/favicon.ico?v=1" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.css" />
@@ -17,6 +19,10 @@
         body {
             background-color: #eef1f5;
         }
+        .responsive-video {
+                width: 1048576px;
+                height: 640px;
+            }
     </style>
 </head>
 <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo">
@@ -118,6 +124,11 @@
     <footer class="mdui-typo" style="left: 0px">
         <p>2023 由 <a style="font-weight: 600" href="https://babu.fanmao.pro">Babu</a> 开发，API支持 <a style="font-weight: 600" href="https://api.xingzhige.com/">星之阁</a>，版权归 <a style="font-weight: 600" href="https://www.bilibili.com">哔哩哔哩</a> 所有 </p>
     </footer>
+    <style>
+        .swal2-container {
+            z-index: 9216;
+        }
+    </style>
   <script>
     // 获取地址栏中的链接参数
     function getUrlParameter() {
