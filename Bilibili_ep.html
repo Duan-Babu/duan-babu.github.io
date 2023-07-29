@@ -464,7 +464,9 @@
                 <i class="mdui-icon material-icons">&#xe5d2;</i>
             </button>
             <a href="./" class="mdui-typo-headline" mdui-tooltip="{content:'点击跳转到哔哩分享姬介绍页面'}">哔哩分享姬</a>
+            <a href="./" class="mdui-typo-title" mdui-tooltip="{content: '感谢支持我们的每一个用户~'}">（づ￣3￣）づ╭❤️～</a>
             <div class="mdui-toolbar-spacer"></div>
+            <button id="switch-theme" mdui-tooltip="{content: '登录'}" mdui-dialog="{target: '#login'}" class="mdui-btn mdui-ripple mdui-btn-icon waves-circle"><i class="mdui-icon material-icons">&#xe853;</i></button>
             <button id="switch-theme" mdui-tooltip="{content: '网站公告'}" mdui-dialog="{target: '#tip'}" class="mdui-btn mdui-ripple mdui-btn-icon waves-circle"><i class="mdui-icon material-icons">&#xe85d;</i></button>
             <button mdui-menu="{target: '#main-menu'}" class="waves-circle mdui-btn mdui-ripple mdui-btn-icon"><i class="mdui-icon material-icons">&#xe5d4;</i></button>
             <ul class="mdui-menu" id="main-menu">
@@ -532,7 +534,7 @@
                 </div>
                 <br>
                 <div class="mdui-card">
-                    <video id="video" controls="controls" class="mdui-video-fluid"></video>
+                    <video id="video" controls="controls" class="mdui-video-fluid" mdui-tooltip="{content: '视频来源于：Bilibili'}"></video>
                 </div>
                 <br>
                 <div class="mdui-card">
@@ -575,6 +577,24 @@
             z-index: 9216;
         }
     </style>
+        <div class="mdui-dialog" id="login">
+            <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
+                <span class="mdui-typo-title"><strong>登录你的 Bilibili 账号</strong></span>
+                   <div class="mdui-toolbar-spacer"></div>
+                <div class="waves-circle"><button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
+                </div>
+                <div class="mdui-dialog-content">
+                    <center><p style="font-size: 16px;"><strong>请扫描二维码确认登录</strong></p>
+                    <img height="300px" src="" id="qrcode">
+                    <p style="font-size: 16px;">登录为一次性登录，仅获取mid和access_key，用于获取用户信息和共享会员状态<br>本接口由星之阁API提供</p></center>
+                </div>
+                <div class="mdui-dialog-actions">
+                    <div class="mdui-btn" style="margin-bottom: 64px;width: 128px;" onclick="getQRCode()">刷新二维码</div>
+                 <div class="mdui-btn" style="margin-bottom: 64px;" mdui-dialog-close>登录</div>
+                 <div style="height: 10px;"></div>
+             </div>
+            </div>
+        </div>
     <div class="mdui-dialog" id="tip">
         <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
             <span class="mdui-typo-title"><strong>公告</strong></span>
@@ -811,10 +831,6 @@
                 <div style="height: 10px;"></div>
             </div>
         </div>
-        <script>    
-            var $ = mdui.$;
-            var inst = new mdui.Dialog('#tip');
-        </script>
   <script>
     // 获取地址栏中的链接参数
     function getUrlParameter() {
@@ -882,7 +898,16 @@
         })
         .catch(error => console.error('Error:', error));
     }
-    
+
+    // 下载 JSON 数据并解析其中的 URL（登录）
+    function downloadAndParseJsonL(Userurl) {
+      fetch(Userurl,requestConfigHome)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('qrcode').src = data.data.url;
+        })
+        .catch(error => console.error('Error:', error));
+    }
     // 播放视频
     function playVideo(videoUrl) {
       const video = document.getElementById('video');
@@ -890,6 +915,9 @@
       video.play();
     }
 
+    function getQRCode() {
+        downloadAndParseJsonL('https://api.xingzhige.com/API/b_qrcode/');
+    }
     // 主函数
     function main() {
         var isWechat= (function(){
@@ -915,6 +943,7 @@
             const userurl= 'https://api.xingzhige.com/API/b_personal/?mid=' + urlParameter.Usermid;
             downloadAndParseJson(url);
             downloadAndParseJsonU(userurl);
+            getQRCode();
         } else {
             Swal.fire(
             '参数缺失',
