@@ -11,8 +11,8 @@
     <script src="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/qrcode-generator/1.4.4/qrcode.min.js"></script>
-<script src="https://cdn.bootcss.com/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>
-<link href="https://cdn.bootcss.com/limonte-sweetalert2/8.11.8/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>
+    <link href="https://cdn.bootcss.com/limonte-sweetalert2/8.11.8/sweetalert2.min.css" rel="stylesheet">
 
     <style>
         body {
@@ -22,68 +22,70 @@
                 width: 1048576px;
                 height: 640px;
             }
-            .mdui-card {
-    border-radius: 12px;
-    }
-
-    .mdui-dialog {
+        .mdui-card {
         border-radius: 12px;
-    }
+        }
 
-    .mdui-btn-block {
-        border-radius: 12px;
-    }
+        .mdui-dialog {
+            border-radius: 12px;
+        }
 
-    .mdui-btn {
-        border-radius: 12px;
-    }
+        .mdui-btn-block {
+            border-radius: 12px;
+        }
 
-    .mdui-video-fluid {
-        border-radius: 12px;
-    }
+        .mdui-btn {
+            border-radius: 12px;
+        }
 
-    .mdui-menu-open {
-        border-radius: 12px;
-    }
+        .mdui-video-fluid {
+            border-radius: 12px;
+        }
 
-    .mdui-table-fluid {
-        border-radius: 12px;
-    }
+        .mdui-menu-open {
+            border-radius: 12px;
+        }
 
-    .mdui-panel-item {
-        border-radius: 12px;
-    }
+        .mdui-table-fluid {
+            border-radius: 12px;
+        }
 
-    .mdui-toolbar {
-        height: 64px;
-        line-height: 64px;
-    }
+        .mdui-panel-item {
+            border-radius: 12px;
+        }
 
-    .mdui-btn,
-    .mdui-fab {
-        text-transform: none;
-    }
+        .mdui-toolbar {
+            height: 64px;
+            line-height: 64px;
+        }
 
-    .mdui-appbar .mdui-toolbar {
-        height: 64px;
-        line-height: 64px;
-    }
+        .mdui-btn,
+        .mdui-fab {
+            text-transform: none;
+        }
 
-    .mdui-appbar-with-toolbar {
-        padding-top: 64px;
-    }
+        .mdui-appbar .mdui-toolbar {
+            height: 64px;
+            line-height: 64px;
+        }
 
-    .mdui-overlay {
-        backdrop-filter: blur(7px);
-    }
+        .mdui-appbar-with-toolbar {
+            padding-top: 64px;
+        }
 
-    .mdui-card {
-        box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 1px 5px 0 rgb(0 0 0 / 16%);
-    }
+        .mdui-overlay {
+            backdrop-filter: blur(7px);
+        }
 
-    .mdui-drawer {
-        box-shadow: -1px 10px 10px 0 rgb(60 64 67/30%), 0 1px 3px 1px rgb(60 64 67/15%);
-    }
+        .mdui-card {
+            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 1px 5px 0 rgb(0 0 0 / 16%);
+        }
+
+        .mdui-drawer {
+            width: 250px;
+            z-index: 2048;
+            box-shadow: -1px 10px 10px 0 rgb(60 64 67/30%), 0 1px 3px 1px rgb(60 64 67/15%);
+        }
     </style>
 </head>
 <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo">
@@ -98,8 +100,8 @@
         </div>
         </div>
     </header>
-    <nav class="mdui-drawer mdui-drawer-full-height mdui-drawer-close" id="MainDrawer">
-        <ul class="mdui-list">
+    <div class="mdui-drawer mdui-drawer-close" id="MainDrawer">
+        <div class="mdui-list">
             <a id="ToggleHome" class="mdui-list-item" style="border-radius: 0px">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-indigo">home</i>
                 <div class="mdui-list-item-content">首页</div>
@@ -140,8 +142,8 @@
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue-grey">chevron_left</i>
                 <div class="mdui-list-item-content">收起菜单</div>
             </li>
-        </ul>
-    </nav>
+        </div>
+    </div>
     <div id="Home">
         <div class="mdui-container mdui-p-t-3">
             <div class="mdui-col">
