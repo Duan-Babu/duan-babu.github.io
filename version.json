@@ -1,14 +1,23 @@
 {
+    "name": "氢应用服务框架",
+    "url": "https://babu.fanmao.pro",
     "boolean": true,
-    "name": "青衿 Lite",
-    "version": "1.0.1",
-    "time": "2023年7月10日",
-    "info": "[优化] 优化底层代码架构/n[优化] 优化内存占用/n[更新] 使用POUI框架",
-},
-{
-    "boolean": true,
-    "name": "智慧中小学教材下载器",
-    "version": "1.0.24",
-    "time": "2023年8月12日",
-    "info": "[新增] 侧边栏树状查看教材结构/n[修复] B站主页无法打开问题/n[修复] 部分教材无法下载问题",
+    "apps": [
+        {
+            "name": "青衿 Lite",
+            "durl": "https://babu.fanmao.pro",
+            "version": "1.0.1",
+            "time": "2023年7月10日",
+            "info": "[优化] 优化底层代码架构/n[优化] 优化内存占用/n[更新] 使用POUI框架",
+            "more": ""
+        },
+        {
+            "name": "智慧中小学教材下载器",
+            "durl": "https://babu-study.lanzouw.com/b02euhgvg",
+            "version": "1.0.24",
+            "time": "2023年8月12日",
+            "info": "[新增] 侧边栏树状查看教材结构/n[修复] B站主页无法打开问题/n[修复] 部分教材无法下载问题",
+            "more": "密码：Babu"
+        }
+    ]
 }
