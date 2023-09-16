@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <link rel="icon" href="https://babu.fanmao.pro/img/icon.png">
+    <title>📁Babu的软件列表</title>
+    <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+    <style>
+        html
+        {
+            min-width: auto;
+            max-width: 800px;  
+            margin: 0 auto;  
+            height: 101%;
+        }
+
+        body 
+        {
+            background-color:rgb(249,249,249);
+            color:black;
+            font-family: 'HarmonyOS Sans SC', sans-serif;
+            min-width: 500px;
+            max-width: 720px;
+            margin: 40px; 
+        }
+
+        .ContentEntrance 
+        {
+            animation: FloatIn 1s cubic-bezier(0,1,0,1);
+        }
+
+        .page-title 
+        {
+            font-weight: bold;
+            font-size: 48px;
+            margin: 4px 0 20px 4px;
+        }
+
+        .page-secondtitle 
+        {
+            position: absolute;
+            width: 100%;
+            min-width: 580px;
+            max-width: 800px;
+            text-align: right;
+            font-size: 16px;
+            margin: -68px 40px 0 -88px;
+        }
+
+        .grid-item 
+        {
+            position: relative;
+            margin: 4px 0 0 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 68px;
+            background-color: none;
+            border: none;
+            max-width: 720px;
+        }
+
+        .grid-item img
+        {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 22px;
+            top: 22px;
+            bottom: 24;
+            border-radius: 8px;
+        }
+
+        .grid-item .title 
+        {
+            position: absolute;
+            font-size: 16px;
+            left: 68px;
+            right: 26px;
+            top: 25px;
+            bottom: 27px;
+            text-align: left;
+            font-family: 'HarmonyOS Sans SC', sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) 
+        {
+            body 
+            {
+                background-color: rgb(40,40,40);
+                color: white;
+            }
+        }
+
+        @keyframes FloatIn
+        {
+            0% 
+            {
+                opacity: 0;
+                transform: translateY(500px);
+            }
+            40% 
+            {
+                opacity: 0;
+                transform: translateY(500px);
+            }
+            100% 
+            {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">📁软件列表</h1>
+    <p class="page-secondtitle">蓝奏云下载密码<br>Babu</p>
+    <div class="ContentEntrance">
+        <div class="grid-container">
+            <fluent-button class="grid-item" onclick="window.open('https://babu-study.lanzouw.com/imLqk18puxzi','_self')">
+                <img src="https://assets.woozooo.com/assets/images/type/zip_max.gif">
+                <span class="title">氢·课表 V23.9.16</span>
+                <span style="position:absolute; font-size: 16px; font-family: Segoe Fluent Icons; right: 26px; top: 25px; ">&#xE76C;</span>
+            </fluent-button>
+            <fluent-button class="grid-item" onclick="window.open('https://babu-study.lanzouw.com/ilD1Z18pusgj','_self')">
+                <img src="https://assets.woozooo.com/assets/images/type/zip_max.gif">
+                <span class="title">POUI V23.9.16</span>
+                <span style="position:absolute; font-size: 16px; font-family: Segoe Fluent Icons; right: 26px; top: 25px; ">&#xE76C;</span>
+            </fluent-button>
+            <fluent-button class="grid-item" onclick="window.open('https://babu-study.lanzouw.com/iyIvx16b65ch','_self')">
+                <img src="https://assets.woozooo.com/assets/images/type/exe_max.gif">
+                <span class="title">智慧中小学教材下载器 V1.0.35</span>
+                <span style="position:absolute; font-size: 16px; font-family: Segoe Fluent Icons; right: 26px; top: 25px; ">&#xE76C;</span>
+            </fluent-button>
+            <fluent-button class="grid-item" onclick="window.open('https://babu-study.lanzouw.com/i0otL14biaza','_self')">
+                <img src="https://assets.woozooo.com/assets/images/type/exe_max.gif">
+                <span class="title">哔哩分享姬 V1.0.0</span>
+                <span style="position:absolute; font-size: 16px; font-family: Segoe Fluent Icons; right: 26px; top: 25px; ">&#xE76C;</span>
+            </fluent-button>
+            <fluent-button class="grid-item" onclick="window.open('https://babu-study.lanzouw.com/iGacK13sq0uj','_self')">
+                <img src="https://assets.woozooo.com/assets/images/type/apk_max.gif">
+                <span class="title">微信儿童手表版 V1.7.3</span>
+                <span style="position:absolute; font-size: 16px; font-family: Segoe Fluent Icons; right: 26px; top: 25px; ">&#xE76C;</span>
+            </fluent-button>
+        </div>
+    </div>
+</body>
+</html>
