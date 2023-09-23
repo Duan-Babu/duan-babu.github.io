@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <link rel="icon" href="https://babu.fanmao.pro/img/icon.png">
+    <title>CP短文生成器-实用工具</title>
+    <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+    <style>
+        html
+        {
+            min-width: auto;
+            max-width: 800px;  
+            margin: 0 auto;  
+            height: 101%;
+        }
+
+        body 
+        {
+            background-color:rgb(249,249,249);
+            color:black;
+            font-family: 'HarmonyOS Sans SC', sans-serif;
+            min-width: 500px;
+            max-width: 720px;
+            margin: 40px; 
+        }
+
+        .ContentEntrance 
+        {
+            animation: FloatIn 1s cubic-bezier(0,1,0,1);
+        }
+
+        .page-title 
+        {
+            font-weight: bold;
+            font-size: 48px;
+            margin: 4px 0 20px 4px;
+        }
+
+        .page-secondtitle 
+        {
+            position: absolute;
+            width: 100%;
+            min-width: 580px;
+            max-width: 800px;
+            text-align: right;
+            font-size: 16px;
+            margin: -68px 40px 0 -88px;
+        }
+
+        .grid-item 
+        {
+            position: relative;
+            margin: 4px 0 0 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 68px;
+            background-color: none;
+            border: none;
+            max-width: 720px;
+        }
+
+        .grid-item img
+        {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 22px;
+            top: 22px;
+            bottom: 24;
+            border-radius: 8px;
+        }
+
+        .grid-item .title 
+        {
+            position: absolute;
+            font-size: 16px;
+            left: 68px;
+            right: 26px;
+            top: 25px;
+            bottom: 27px;
+            text-align: left;
+            font-family: 'HarmonyOS Sans SC', sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) 
+        {
+            body 
+            {
+                background-color: rgb(40,40,40);
+                color: white;
+            }
+        }
+
+        @keyframes FloatIn
+        {
+            0% 
+            {
+                opacity: 0;
+                transform: translateY(500px);
+            }
+            40% 
+            {
+                opacity: 0;
+                transform: translateY(500px);
+            }
+            100% 
+            {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .custom {
+        --card-width: auto;
+        --card-height: auto;
+        padding: 22px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">CP文字生成</h1>
+    <p class="page-secondtitle">API技术支持<br>落月API</p>
+    <div class="ContentEntrance">
+        <div class="grid-container">
+            <fluent-text-field appearance="outline" placeholder="♂请输入姓名，留空随机" id="Txb_姓名1">姓名1</fluent-text-field> <fluent-text-field appearance="outline" placeholder="♀请输入姓名，留空随机" id="Txb_姓名2">姓名2</fluent-text-field>
+            <div style="height: 10px;"></div>
+            <fluent-button appearance="accent" onclick="getInformation()">✏️生成</fluent-button>
+            <div style="height: 10px;"></div>
+            <fluent-card class="custom">
+                <div id="标题" style="font-size: large;">⚠️没有结果</div><br>
+                <div id="提示">请输入姓名后点击“✏️生成”按钮，将自动生成文字。</div><div style="height: 10px;"></div>
+                <fluent-tabs activeid="entrees">
+                    <fluent-tab id="j1">结果1</fluent-tab>
+                    <fluent-tab id="j2">结果2</fluent-tab>
+                    <fluent-tab id="j3">结果3</fluent-tab>
+                    <fluent-tab-panel id="gl">
+                        <div style="height: 15px;"></div>
+                        <div id="关键词1" style="font-size: x-large;"></div><br>
+                        <div id="故事1" style="font-size: medium;"></div>
+                    </fluent-tab-panel>
+                    <fluent-tab-panel id="g2">
+                        <div style="height: 15px;"></div>
+                        <div id="关键词2" style="font-size: x-large;"></div><br>
+                        <div id="故事2" style="font-size: medium;"></div>
+                    </fluent-tab-panel>
+                    <fluent-tab-panel id="g3">
+                        <div style="height: 15px;"></div>
+                        <div id="关键词3" style="font-size: x-large;"></div><br>
+                        <div id="故事3" style="font-size: medium;"></div>
+                    </fluent-tab-panel>
+                </fluent-tabs>
+                <fluent-progress-ring id="loading" style="display:none"></fluent-progress-ring>
+              </fluent-card>
+        </div>
+    </div>
+</body>
+<script>
+    // 构建请求头
+    const headersHome = new Headers();
+    headersHome.append('Referer', 'https://api.vkeys.cn');
+
+    // 构建请求配置
+    const requestConfig = {
+    method: 'GET',
+    headers: headersHome
+    };
+
+    function getInformation() {
+    const url= 'https://api.vkeys.cn/API/CP?Name1=' + document.getElementById('Txb_姓名1').value +'&Name2='+ document.getElementById('Txb_姓名2').value;
+    document.getElementById('标题').textContent='🤔正在思考';
+    document.getElementById('提示').textContent='AI思考中，请稍作等待...';
+    document.getElementById("loading").style="display:";
+    fetch(url,requestConfig)
+      .then(response => response.json())
+      .then(data => {
+        for (var i = 0; i < data.data.corpusList.length; i++) {
+        document.getElementById('标题').textContent='✅生成完毕';
+        document.getElementById('提示').textContent='AI已生成完毕，点击“✏️生成”按钮可再次生成。';
+        document.getElementById('关键词'+ (i+1)).textContent='#'+data.data.corpusList[i].keyword;
+        document.getElementById('故事'+ (i+1)).textContent=data.data.corpusList[i].story;
+        document.getElementById("loading").style="display:none";
+        document.querySelector('title').textContent = 'CP | ' + document.getElementById('Txb_姓名1').value +' 与 ' +document.getElementById('Txb_姓名2').value;
+        }
+      })
+      .catch(error => console.error('Error:', error));
+  }</script>
+
+</html>
