@@ -9,12 +9,12 @@
     <title>CP短文生成器-实用工具</title>
     <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
     <style>
+
         html
         {
             min-width: auto;
             max-width: 800px;  
             margin: 0 auto;  
-            height: 101%;
         }
 
         body 
@@ -22,9 +22,13 @@
             background-color:rgb(249,249,249);
             color:black;
             font-family: 'HarmonyOS Sans SC', sans-serif;
-            min-width: 500px;
+            min-width: auto;
             max-width: 720px;
             margin: 40px; 
+        }
+
+        .darkmode-layer, .darkmode-toggle {
+        z-index: 500;
         }
 
         .ContentEntrance 
@@ -122,18 +126,29 @@
     </style>
 </head>
 <body>
+    <fluent-progress id="Progress" style="display:none"></fluent-progress>
+    <fluent-breadcrumb>
+        <fluent-breadcrumb-item href="../">首页</fluent-breadcrumb-item>
+        <fluent-breadcrumb-item href="./">🤔AI分区</fluent-breadcrumb-item>
+        <fluent-breadcrumb-item>CP文字生成</fluent-breadcrumb-item>
+      </fluent-breadcrumb>
     <h1 class="page-title">CP文字生成</h1>
     <p class="page-secondtitle">API技术支持<br>落月API</p>
     <div class="ContentEntrance">
         <div class="grid-container">
-            <fluent-text-field appearance="outline" placeholder="♂请输入姓名，留空随机" id="Txb_姓名1">姓名1</fluent-text-field> <fluent-text-field appearance="outline" placeholder="♀请输入姓名，留空随机" id="Txb_姓名2">姓名2</fluent-text-field>
+            <fluent-text-field appearance="outline" placeholder="♂请输入姓名" id="Txb_姓名1">姓名1</fluent-text-field> <fluent-text-field appearance="outline" placeholder="♀请输入姓名" id="Txb_姓名2">姓名2</fluent-text-field>
             <div style="height: 10px;"></div>
-            <fluent-button appearance="accent" onclick="getInformation()">✏️生成</fluent-button>
-            <div style="height: 10px;"></div>
+            <fluent-tooltip id="tooltip" anchor="anchor-default">
+                🔃点击可再次生成
+              </fluent-tooltip>
+            <fluent-button id="anchor-default" aria-describedby="tooltip" appearance="accent" onclick="getInformation()">✏️生成</fluent-button>
+
+            <div style="height: 15px;"></div>
+
             <fluent-card class="custom">
                 <div id="标题" style="font-size: large;">⚠️没有结果</div><br>
                 <div id="提示">请输入姓名后点击“✏️生成”按钮，将自动生成文字。</div><div style="height: 10px;"></div>
-                <fluent-tabs activeid="entrees">
+                <fluent-tabs id='Result' activeid="entrees" style="display:none">
                     <fluent-tab id="j1">结果1</fluent-tab>
                     <fluent-tab id="j2">结果2</fluent-tab>
                     <fluent-tab id="j3">结果3</fluent-tab>
@@ -155,6 +170,16 @@
                 </fluent-tabs>
                 <fluent-progress-ring id="loading" style="display:none"></fluent-progress-ring>
               </fluent-card>
+
+              <div style="height: 15px;"></div>
+
+              <fluent-card class="custom">
+                <fluent-switch id='dark-toggle' onclick="SetMode()">
+                    <span slot="checked-message">开启</span>
+                    <span slot="unchecked-message">关闭</span>
+                    <label for="cap-switch">反色模式 </label>
+                </fluent-switch>
+            </fluent-card>
         </div>
     </div>
 </body>
@@ -174,6 +199,8 @@
     document.getElementById('标题').textContent='🤔正在思考';
     document.getElementById('提示').textContent='AI思考中，请稍作等待...';
     document.getElementById("loading").style="display:";
+    document.getElementById("Progress").style="display:";
+    document.getElementById("Result").style="display:none";
     fetch(url,requestConfig)
       .then(response => response.json())
       .then(data => {
@@ -183,10 +210,35 @@
         document.getElementById('关键词'+ (i+1)).textContent='#'+data.data.corpusList[i].keyword;
         document.getElementById('故事'+ (i+1)).textContent=data.data.corpusList[i].story;
         document.getElementById("loading").style="display:none";
+        document.getElementById("Progress").style="display:none";
+        document.getElementById("Result").style="display";
         document.querySelector('title').textContent = 'CP | ' + document.getElementById('Txb_姓名1').value +' 与 ' +document.getElementById('Txb_姓名2').value;
         }
       })
-      .catch(error => console.error('Error:', error));
-  }</script>
+      .catch(error => {
+        document.getElementById('标题').textContent='❌无法生成';
+        document.getElementById('提示').textContent='当前无法处理您的请求，请换个名字后点击“✏️生成”按钮重试。';
+        document.getElementById("loading").style="display:none";
+        document.getElementById("Progress").style="display:none";
+      });
+  }
 
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.4.0/darkmode-js.min.js"></script>
+    <script>
+    if (darkmode.isActivated()) {
+		document.getElementById("dark-toggle").checked = true;
+	}
+	else {
+		document.getElementById("dark-toggle").checked = false;
+	}
+    function SetMode(){
+        var options = {
+        saveInCookies: true, // 是否在cookie保存当前模式 - 默认: true,
+        autoMatchOsTheme: true // 是否自动根据系统适应模式 - 默认: true
+    };
+        const darkmode =  new Darkmode();
+        darkmode.toggle();
+    }
+    </script>
 </html>
