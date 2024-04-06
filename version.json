@@ -15,9 +15,9 @@
         {
             "name": "智慧中小学教材下载器",
             "durl": "https://babu-study.lanzouw.com/b02euhgvg",
-            "version": "1.0.36",
-            "time": "2023年11月20日",
-            "info": "[优化] 窗体圆角和阴影显示逻辑/n[新增] 关于页面",
+            "version": "1.0.37",
+            "time": "2024年4月6日",
+            "info": "[优化] 界面控件/n[优化] 关于页面",
             "more": "密码：Babu",
             "boolean": true
         }
